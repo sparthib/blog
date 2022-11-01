@@ -1,13 +1,13 @@
 ---
 title: "About"
-image: profile.jpg
+# image: crispy-couscous/images/sowmya.jpg
 about:
   template: jolla
   links:
     - icon: twitter
       text: Twitter
       href: https://twitter.com/sowmyapartybun
-    # (additional links excluded for brevity)
+    
 ---
 
 ## About this blog

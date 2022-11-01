@@ -5,4 +5,9 @@ listing:
   sort: "date desc"
   type: default
   categories: true
+
+
+execute: 
+  freeze: auto
 ---
+
