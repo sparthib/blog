@@ -1,9 +1,17 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Sowmya's Website"
+  site-url: https://www.sowmya-parthiban.com
+  description: "my blog"
+  
   navbar:
+    right:
+        - icon: rss
+          href: index.xml
+  
     left:
       - href: index.qmd
         text: Home
