@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Sowmya's Website</title>
+<link>https://www.sowmya-parthiban.com/listings.html</link>
+<atom:link href="https://www.sowmya-parthiban.com/listings.xml" rel="self" type="application/rss+xml"/>
+<description>my blog</description>
+<generator>quarto-1.0.36</generator>
+<lastBuildDate>Tue, 01 Nov 2022 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Strategies</title>
+  <dc:creator>Sowmya P</dc:creator>
+  <link>https://www.sowmya-parthiban.com/posts/stat_2_ch_1/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>Questions:</p>
+<ol type="1">
+<li><p>Clarification on why we do expectation of losses.</p></li>
+<li><p>How is a strategy, the same thing as an estimator? We want an estimator to estimate the true state of nature, however what <img src="https://latex.codecogs.com/png.latex?s(X)"> or <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D"> does is produce an action right?</p></li>
+<li><p>Intuition of minimax in the disease, physician setting as compared to a game. Also explain slide 18.</p></li>
+<li><p>When do we consider lower quantant and diagonal lower quantant?</p></li>
+<li><p>Can we say that all minimax are Bayes?</p></li>
+<li><p>Are all Bayes strategies admissible?</p></li>
+</ol>
+<section id="kinds-of-knowledge-we-can-obtain-from-a-problem-with-statistical-uncertainty" class="level1">
+<h1>1. Kinds of Knowledge we can obtain from a problem with statistical uncertainty</h1>
+<section id="basic-elements-of-a-statistical-problem" class="level3">
+<h3 class="anchored" data-anchor-id="basic-elements-of-a-statistical-problem">Basic elements of a Statistical Problem</h3>
+<p><img src="https://latex.codecogs.com/png.latex?a%20%5Chspace%7B0.3%20em%7D%20%5Cepsilon%20%5Chspace%7B0.3%20em%7D%20A"> where a is a single <strong>action</strong> belonging to the <strong>action space.</strong></p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Ctheta%20%5Chspace%7B0.3%20em%7D%20%5Cepsilon%20%5Chspace%7B0.3%20em%7D%20%5CTheta"> where <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> is a single parameter or state of nature that belongs to a parameter space.</p>
+<p><img src="https://latex.codecogs.com/png.latex?l(%5Ctheta,%20a)"> is a consequence of taking action a when state of nature is <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> . i.e.&nbsp;given <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> (although maybe unknown) , when player performs an action what is the loss or gain? if $l(\theta, a) &gt; 0 $ then it’s interpreted as <strong>loss</strong> occured to player. If <img src="https://latex.codecogs.com/png.latex?%3C%200"> then <strong>gain.</strong></p>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>Suppose a physician(the player) sees a patient who may ( <img src="https://latex.codecogs.com/png.latex?%5Ctheta%20=%20%5Ctheta_%7B1%7D">) or may not (<img src="https://latex.codecogs.com/png.latex?%5Ctheta%20=%20%5Ctheta_%7B2%7D">) truly have a disease. The true state is unknown; based on the symptoms or some diagnostic test (estimator of the parameter), the physician should decide whether or not she should treat him. While doing so, careful consideration must be taken because the estimator may not be accurate which leads to losses. Say test here is indicated by $X$ . <img src="https://latex.codecogs.com/png.latex?X%20=%20x_%7B1%7D"> if test suggests presence of disease, <img src="https://latex.codecogs.com/png.latex?x_%7B2%7D"> otherwise.</p>
+<ul>
+<li>For e.g.&nbsp;, if the true state of <img src="https://latex.codecogs.com/png.latex?%5Ctheta%20=%20%5Ctheta_%7B1%7D">, but your test result comes out <img src="https://latex.codecogs.com/png.latex?x_%7B2%7D">, then that may worsen symptoms in a patient - incurring loss in a sense.</li>
+</ul>
+<table class="table">
+<caption>loss of an action a given <img src="https://latex.codecogs.com/png.latex?%5Ctheta"></caption>
+<colgroup>
+<col style="width: 41%">
+<col style="width: 29%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th><img src="https://latex.codecogs.com/png.latex?a_%7B1%7D"> = treatment</th>
+<th><img src="https://latex.codecogs.com/png.latex?a_%7B2%7D"> = treatment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>State of Nature</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctheta_1"> = disease present</td>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctheta_2"> = disease absent</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<caption>Probability of getting X given a certain <img src="https://latex.codecogs.com/png.latex?%5Ctheta"><br>
+</caption>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th><img src="https://latex.codecogs.com/png.latex?x_1"> = pos test</th>
+<th><img src="https://latex.codecogs.com/png.latex?x_2"> = neg test</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>State of Nature</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctheta_1"> = disease present</td>
+<td>0.94</td>
+<td>0.06</td>
+</tr>
+<tr class="odd">
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctheta_2"> = disease absent</td>
+<td>0.02</td>
+<td>0.98</td>
+</tr>
+</tbody>
+</table>
+<p>: ### Different types of losses we’ve seen before.</p>
+<p>Mean Squared error loss:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AE%5B(%5Ctheta%20-%20%5Chat%7B%5Ctheta%7D)%5E%7B2%7D%5D%20=%20Var(%5Ctheta%20-%20%5Chat%7B%5Ctheta%7D)%20+%20E%5B(%5Ctheta%20-%20%5Chat%7B%5Ctheta%7D)%5D%5E%7B2%7D%20%5C%5C%0A=%20Var(%5Chat%7B%5Ctheta%7D)%20+%20E%5B(%5Ctheta%20-%20%5Chat%7B%5Ctheta%7D)%5D%5E%7B2%7D%0A"></p>
+<p>When <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D"> is <strong>unbiased,</strong> i.e., <img src="https://latex.codecogs.com/png.latex?E%5B%5Chat%7B%5Ctheta%7D%5D%20=%20%5Ctheta"> then,</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AMSE%20=%20E%5B(%5Ctheta%20-%20%5Chat%7B%5Ctheta%7D)%5E%7B2%7D%5D%20=%20Var(%5Chat%7B%5Ctheta%7D)%20+%200%0A"></p>
+<p>Absolute Error Loss: <img src="https://latex.codecogs.com/png.latex?%7C%20%5Ctheta%20-%20%5Chat%7B%5Ctheta%7D%7C"></p>
+</section>
+<section id="what-are-strategies-sx-estimators-hatthetax" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-strategies-sx-estimators-hatthetax">What are strategies <img src="https://latex.codecogs.com/png.latex?(%20s(X)%20)">/estimators <img src="https://latex.codecogs.com/png.latex?(%5Chat%7B%5Ctheta%7D(X)">?</h3>
+<p>We want to have our actions be informed on data we observe.</p>
+<p>A pure strategy <img src="https://latex.codecogs.com/png.latex?s"> is a function from the data space <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BX%7D"> to the action space <img src="https://latex.codecogs.com/png.latex?A">.</p>
+<p>i.e.&nbsp;for a pure strategy, the image of some $x_{i} $ can only be a unique action from <img src="https://latex.codecogs.com/png.latex?A">.</p>
+<p><img src="https://latex.codecogs.com/png.latex?s"> refers to a single strategy and <img src="https://latex.codecogs.com/png.latex?S"> refers to a set of strategies.</p>
+<p>Steps to calculate <img src="https://latex.codecogs.com/png.latex?l(%5Ctheta,%20s)"> for a single strategy across all x’s:</p>
+<p>1. Suppose our data space is, <img src="https://latex.codecogs.com/png.latex?x_%7B1%7D,%20x_%7B2%7D"></p>
+<p>2. Our action space for strategy s, suppose is, <img src="https://latex.codecogs.com/png.latex?a_%7B1%7D,%20a_%7B2%7D"> respectively.</p>
+<p>3. Now, we know <img src="https://latex.codecogs.com/png.latex?f(x_%7B1%7D%20%7C%20%5Ctheta_%7B1%7D),%20f(x_%7B1%7D%20%7C%20%5Ctheta_%7B2%7D),%20f(x_%7B2%7D%20%7C%20%5Ctheta_%7B1%7D),%20f(x_%7B2%7D%20%7C%20%5Ctheta_%7B1%7D)">. (Say we know the distributions based on observations from the past).</p>
+<ol start="4" type="1">
+<li>Then <img src="https://latex.codecogs.com/png.latex?l(%5Ctheta_%7B1%7D,%20s(x_%7B1%7D))"> = <img src="https://latex.codecogs.com/png.latex?l(%5Ctheta_%7B1%7D,%20a_1))"> (<img src="https://latex.codecogs.com/png.latex?l"> indicates loss associated with an individual action).
+<ul>
+<li>Similarly for other parameters and actions.</li>
+</ul></li>
+<li>Let $ s_{1}, s_{2}, s_{3}, s_{4} S $</li>
+</ol>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What’s the difference between <img src="https://latex.codecogs.com/png.latex?X"> and <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BX%7D"> ? <img src="https://latex.codecogs.com/png.latex?X"> is a random variable and <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BX%7D"> is the space that contains all <img src="https://latex.codecogs.com/png.latex?x_i"> a.k.a. the <strong>data space.<br>
+<br>
+</strong>Since <img src="https://latex.codecogs.com/png.latex?X"> is random, the function <img src="https://latex.codecogs.com/png.latex?s(X)"> is also random.<br>
+</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why are we interested in calculating <img src="https://latex.codecogs.com/png.latex?L(%5Ctheta,%20s)"> in the form of <img src="https://latex.codecogs.com/png.latex?E_%7BX%7D(l(%20%5Ctheta%20,%20s(X))%20%7C%20%5Ctheta)">?</p>
+<p>Note that, here, <img src="https://latex.codecogs.com/png.latex?l(%20%5Ctheta%20,%20s(X))%20%7C%20%5Ctheta)"> is the loss incurred when taking the action <img src="https://latex.codecogs.com/png.latex?s(X%20=%20x_%7Bi%7D)"> for a fixed <img src="https://latex.codecogs.com/png.latex?%5Ctheta"><br>
+<br>
+Then <img src="https://latex.codecogs.com/png.latex?E_%7BX%7D(l(%20%5Ctheta%20,%20s(X))%20%7C%20%5Ctheta)"> is the expectation of these losses <img src="https://latex.codecogs.com/png.latex?%5Cforall"> <img src="https://latex.codecogs.com/png.latex?X"> for a fixed $\theta$</p>
+<p>So <img src="https://latex.codecogs.com/png.latex?E_%7BX%7D(l(%20%5Ctheta%20,%20s(X))%20%7C%20%5Ctheta)"> helps us summarize (across all <img src="https://latex.codecogs.com/png.latex?X">) the loss incurred by a strategy for a <img src="https://latex.codecogs.com/png.latex?%5Ctheta">.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AE_%7BX%7D(l(%20%5Ctheta%20,%20s(X))%20%7C%20%5Ctheta)%20=%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20f(x_%7Bi%7D%20%7C%20%5Ctheta).%20l(%20%5Ctheta%20,%20s(x_%7Bi%7D))%20%7C%20%5Ctheta)%0A"></p>
+<p>Then <img src="https://latex.codecogs.com/png.latex?L(%5Ctheta,%20s)"> = <img src="https://latex.codecogs.com/png.latex?E_%7BX%7D(l(%20%5Ctheta%20,%20s(X))%20%7C%20%5Ctheta)"> asks the question, how well does a strategy perform for a given <img src="https://latex.codecogs.com/png.latex?%5Ctheta"></p>
+<p><br>
+However, if calculate <img src="https://latex.codecogs.com/png.latex?L(%5Ctheta,%20s)"> as the median of <img src="https://latex.codecogs.com/png.latex?l(%5Ctheta,%20s(X))"> across all <img src="https://latex.codecogs.com/png.latex?X"> then, we’re only retaining information about one individual <img src="https://latex.codecogs.com/png.latex?x_%7Bi%7D%20%5Chspace%7B0.3%20em%7D%20%5Cepsilon%20%5Chspace%7B0.3%20em%7D%20X"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="admissible-strategies" class="level1">
+<h1>2. Admissible Strategies</h1>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Definition:</strong></p>
+<p>A strategy <img src="https://latex.codecogs.com/png.latex?s(X)"> is <strong>in</strong>admissible if <img src="https://latex.codecogs.com/png.latex?%5Cexists"> another strategy <img src="https://latex.codecogs.com/png.latex?s'(X)"> s.t. <img src="https://latex.codecogs.com/png.latex?L(%5Ctheta,%20s)%20%3E=%20L(%5Ctheta,%20s')%20%5Cforall%20%5Ctheta"><br>
+<br>
+With at least one strict inequality.</p>
+</div>
+</div>
+<p><img src="https://www.sowmya-parthiban.com/images/strategies.png" class="img-fluid" width="346" alt="Examples of strategies and losses"> In the above example, <img src="https://latex.codecogs.com/png.latex?s_3"> is <strong>uniformly worse</strong> than $s_2$, i.e., it is inadmissible because, it <img src="https://latex.codecogs.com/png.latex?L(%5Ctheta_1%20,%20s3)%20%3E%20L(%5Ctheta_1%20,%20s2)"> and <img src="https://latex.codecogs.com/png.latex?L(%5Ctheta_2%20,%20s3)%20%3E%20L(%5Ctheta_2%20,%20s2)"> .</p>
+<section id="mixedrandomized-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="mixedrandomized-strategies">Mixed/Randomized Strategies:</h3>
+<p>Going back to our four strategies, we can assign each one a probability. <img src="https://latex.codecogs.com/png.latex?f(s_%7B1%7D),%20f(s_%7B2%7D)%20..."></p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Definition:</strong></p>
+<p>A <strong>randomized strategy</strong> is just a weighted sum of our pure strategies based on these probability distributions.</p>
+<p>e.g.&nbsp;<img src="https://latex.codecogs.com/png.latex?s*%20=%20%5Csum_%7Bi=1%7D%5E%7B4%7Ds_%7Bi%7D.%20f(s_%7Bi%7D)"> is a mixed strategy.</p>
+</div>
+</div>
+</section>
+<section id="geometric-representation-of-strategy-space-across-states-of-natureparams" class="level3">
+<h3 class="anchored" data-anchor-id="geometric-representation-of-strategy-space-across-states-of-natureparams">Geometric Representation of Strategy Space Across States of Nature(Params)</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.sowmya-parthiban.com/images/convex hull.png" class="img-fluid figure-img" width="545"></p>
+</figure>
+</div>
+<p>On the right, we have our four pure strategies and their losses for each <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> .</p>
+<p>On the left</p>
+<ul>
+<li><p>x-coordinate = <img src="https://latex.codecogs.com/png.latex?L(%5Ctheta_%7B1%7D,%20s)"></p></li>
+<li><p>y-coordinate = <img src="https://latex.codecogs.com/png.latex?L(%5Ctheta_%7B2%7D,%20s)"></p></li>
+<li><p>A <strong>convex hull</strong> around the pink points then is the entire extended (i.e.&nbsp;including mixed) strategy space.</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cforall%20%5Chspace%7B0.3%20em%7D%20%5Clambda%5Chspace%7B0.3%20em%7D%20%5Cepsilon%20%5Chspace%7B0.3%20em%7D%20%5B0,1%5D%20:%20%5Chspace%7B0.3%20em%7D%5Clambda%20s_%7B1%7D%20+%20(1-%20%5Clambda)s_%7B2%7D"> is a mixed strategy that falls on the line connecting s1 and s2.</p>
+<p>Given, <img src="https://latex.codecogs.com/png.latex?L(s_%7B1%7D,%20%5Ctheta_%7B1%7D)"> and <img src="https://latex.codecogs.com/png.latex?L(s_%7B2%7D,%20%5Ctheta_%7B1%7D)">, and for a given <img src="https://latex.codecogs.com/png.latex?%5Clambda"> s.t. <img src="https://latex.codecogs.com/png.latex?s*%20=%20%CE%BBs_1+(1%E2%88%92%CE%BB)s_2">,</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AL(s*,%20%5Ctheta_1)%20=%20%5Clambda%20s_%7B1%7D%20+%20(1%20-%20%5Clambda)%20s_%7B2%7D%0A"></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Heuristically speaking, admissible strategies always fall on the “south-west” border of the convex-hull. These are the strategies that are useful.</p>
+</div>
+</div>
+<section id="closed-lower-quantant-and-admissibility" class="level4">
+<h4 class="anchored" data-anchor-id="closed-lower-quantant-and-admissibility">Closed “Lower Quantant” and Admissibility</h4>
+<p><strong>Illustration of a Lower Quantant</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.sowmya-parthiban.com/images/lower quantant.png" class="img-fluid figure-img" width="404"></p>
+<p></p><figcaption class="figure-caption">The shaded portion here including the red borders here is a closed lower quantant with corner point (x0, y0).</figcaption><p></p>
+</figure>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>**Definition:**</p>
+<p>A lower quantant whose corner falls on the line x = y is a diagonal lower quantant.</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>**Result:**</p>
+<p>A strategy <img src="https://latex.codecogs.com/png.latex?s"> is admissible <img src="https://latex.codecogs.com/png.latex?%5Ciff"> the closed lower quantant (closed means including the border of the quantant) at s includes no other pt.&nbsp;from S.</p>
+</div>
+</div>
+<p><strong>Illustration of an Inadmissible vs.&nbsp;Admissible Strategy based on the lower quantant</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.sowmya-parthiban.com/images/admiss inadmiss.png" class="img-fluid figure-img" width="582"></p>
+</figure>
+</div>
+<p>Suppose the purple circle here is a convex hull of strategies <img src="https://latex.codecogs.com/png.latex?S">. The lower quantant with its corner at <img src="https://latex.codecogs.com/png.latex?s'"> clearly includes other pts in <img src="https://latex.codecogs.com/png.latex?S">, hence, <img src="https://latex.codecogs.com/png.latex?s'"> is inadmissible. The same is not true for <img src="https://latex.codecogs.com/png.latex?s">.</p>
+</section>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+</section>
+<section id="ordering-strategies" class="level1">
+<h1>3. Ordering Strategies</h1>
+<section id="minimax" class="level2">
+<h2 class="anchored" data-anchor-id="minimax">Minimax</h2>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Definition:</strong></p>
+<p>A <strong>minimax strategy</strong> <img src="https://latex.codecogs.com/png.latex?s*"> is one that minimizes over strategies the maximum loss over states of nature.</p>
+</div>
+</div>
+<section id="geometric-interpretation-of-minimax-strategies" class="level4">
+<h4 class="anchored" data-anchor-id="geometric-interpretation-of-minimax-strategies">Geometric interpretation of minimax strategies:</h4>
+<p>If there is a smallest diagonal-closed-lower-quantant among those that contact the convex hull <img src="https://latex.codecogs.com/png.latex?S"> of those losses, then those points of contact are minimax strategies.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.sowmya-parthiban.com/images/diagonal lower.png" class="img-fluid figure-img" width="423"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="bayes" class="level2">
+<h2 class="anchored" data-anchor-id="bayes">Bayes</h2>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Definition:</strong></p>
+<p>A Bayes strategy <img src="https://latex.codecogs.com/png.latex?s_%7B%5Cpi%7D"> is one that minimizes over all strategies the expected loss over a prior distribution <img src="https://latex.codecogs.com/png.latex?%5Cpi"> on the states of nature.</p>
+</div>
+</div>
+<p>i.e., <img src="https://latex.codecogs.com/png.latex?%5Cforall%20i"> we have been given a prior distribution <img src="https://latex.codecogs.com/png.latex?%5Ctheta_%7Bi%7D"> .</p>
+<ol type="1">
+<li>Say we have <img src="https://latex.codecogs.com/png.latex?%5Ctheta_1"> and <img src="https://latex.codecogs.com/png.latex?%5Ctheta_2"> then, we know <img src="https://latex.codecogs.com/png.latex?f(%5Ctheta_1)"> = <img src="https://latex.codecogs.com/png.latex?%5Cpi"> and <img src="https://latex.codecogs.com/png.latex?f(%5Ctheta_2)"> from past observations.</li>
+<li>For each strategy <img src="https://latex.codecogs.com/png.latex?s"> in our convex hull, we can now calculate, <img src="https://latex.codecogs.com/png.latex?%5Cpi%20L(%5Ctheta_1,%20s)%20+%20(1-%20%5Cpi)%20L(%5Ctheta_2,%20s)"> = <strong>expected loss over the prior dist.</strong></li>
+<li>We can sort these strategies based on the above value and find <img src="https://latex.codecogs.com/png.latex?s*"> with the smallest expected loss.</li>
+</ol>
+<section id="geometric-representation-of-bayes-strategy" class="level4">
+<h4 class="anchored" data-anchor-id="geometric-representation-of-bayes-strategy">Geometric Representation of Bayes Strategy</h4>
+<p>Step 1: Find a strategy <img src="https://latex.codecogs.com/png.latex?s"> in the convex hull.</p>
+<p>Step 2: Compute <img src="https://latex.codecogs.com/png.latex?%5Cpi%20L(%5Ctheta_1,%20s)%20+%20(1-%20%5Cpi)%20L(%5Ctheta_2,%20s)"> or <img src="https://latex.codecogs.com/png.latex?%5Cpi%20L_1%20+%20(1-%20%5Cpi)%20L_2"> for shorthand, say it’s equal to 3.</p>
+<p>Step 3: Find all strategies for which <img src="https://latex.codecogs.com/png.latex?%5Cpi%20L_1%20+%20(1-%20%5Cpi)%20L_2"> = 3.</p>
+<ul>
+<li><p>This is the eqn of a line <img src="https://latex.codecogs.com/png.latex?%5Cpi%20x%20+%20(1-%5Cpi)%20y%20=%203"> or <img src="https://latex.codecogs.com/png.latex?y%20=%20%5Cfrac%7B-%5Cpi%20x%7D%7B1%20-%20%5Cpi%7D%20+%203"></p>
+<p>Step 4: The slope of this eqn then = <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B-%5Cpi%20%7D%7B1%20-%20%5Cpi%7D"></p>
+<p>Step 5: As you keep dialing down 3 to a smaller number you have a line with the same negative slope sweeping across the convex hull towards the south-west, until you reach the border of the convex hull. All strategies here are Bayes strategies for the given <img src="https://latex.codecogs.com/png.latex?%5Cpi"> .</p>
+<p><img src="https://www.sowmya-parthiban.com/images/bayes strat.png" class="img-fluid" width="490"></p></li>
+</ul>
+<p>Step 6: For a countable number of prior distributions you’ll be able to find multiple Bayes strategies which reside in the “south-west” border of the convex hull. The set of these Bayes strategies are <strong>admissible.</strong></p>
+<table class="table">
+<caption>Differences b/w admissible, mini-max, Bayes strategies</caption>
+<colgroup>
+<col style="width: 36%">
+<col style="width: 36%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Admissible</th>
+<th>Minimax</th>
+<th>Bayes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>We have no prior dist of <img src="https://latex.codecogs.com/png.latex?%5CTheta"></td>
+<td>We have no prior dist of <img src="https://latex.codecogs.com/png.latex?%5CTheta"></td>
+<td>Defined w.r.t. prior</td>
+</tr>
+<tr class="even">
+<td>But all admissible strategies are Bayes w.r.t. some prior(may be unknown)</td>
+<td>Since all minimax strategies are admissible, they are also Bayes.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Can intersect with <strong>any</strong> “closed lower quadrant”</td>
+<td>Can only intersect with **smallest “diagonal** closed lower quadrant”</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+</section>
+
+ ]]></description>
+  <category>stat theory II</category>
+  <category>bayes</category>
+  <guid>https://www.sowmya-parthiban.com/posts/stat_2_ch_1/index.html</guid>
+  <pubDate>Tue, 01 Nov 2022 04:00:00 GMT</pubDate>
+  <media:content url="https://www.sowmya-parthiban.com/images/strategies.png" medium="image" type="image/png" height="111" width="144"/>
+</item>
+</channel>
+</rss>
