@@ -1,9 +1,30 @@
 [
   {
+    "objectID": "posts/ST II - Ch 1/index.html",
+    "href": "posts/ST II - Ch 1/index.html",
+    "title": "Strategies",
+    "section": "",
+    "text": "Questions:"
+  },
+  {
+    "objectID": "posts/ST II - Ch 1/index.html#minimax",
+    "href": "posts/ST II - Ch 1/index.html#minimax",
+    "title": "Strategies",
+    "section": "Minimax",
+    "text": "Minimax\n\n\n\n\n\n\nImportant\n\n\n\nDefinition:\nA minimax strategy \\(s*\\) is one that minimizes over strategies the maximum loss over states of nature.\n\n\n\nGeometric interpretation of minimax strategies:\nIf there is a smallest diagonal-closed-lower-quantant among those that contact the convex hull \\(S\\) of those losses, then those points of contact are minimax strategies."
+  },
+  {
+    "objectID": "posts/ST II - Ch 1/index.html#bayes",
+    "href": "posts/ST II - Ch 1/index.html#bayes",
+    "title": "Strategies",
+    "section": "Bayes",
+    "text": "Bayes\n\n\n\n\n\n\nImportant\n\n\n\nDefinition:\nA Bayes strategy \\(s_{\\pi}\\) is one that minimizes over all strategies the expected loss over a prior distribution \\(\\pi\\) on the states of nature.\n\n\ni.e., \\(\\forall i\\) we have been given a prior distribution \\(\\theta_{i}\\) .\n\nSay we have \\(\\theta_1\\) and \\(\\theta_2\\) then, we know \\(f(\\theta_1)\\) = \\(\\pi\\) and \\(f(\\theta_2)\\) from past observations.\nFor each strategy \\(s\\) in our convex hull, we can now calculate, \\(\\pi L(\\theta_1, s) + (1- \\pi) L(\\theta_2, s)\\) = expected loss over the prior dist.\nWe can sort these strategies based on the above value and find \\(s*\\) with the smallest expected loss.\n\n\nGeometric Representation of Bayes Strategy\nStep 1: Find a strategy \\(s\\) in the convex hull.\nStep 2: Compute \\(\\pi L(\\theta_1, s) + (1- \\pi) L(\\theta_2, s)\\) or \\(\\pi L_1 + (1- \\pi) L_2\\) for shorthand, say it’s equal to 3.\nStep 3: Find all strategies for which \\(\\pi L_1 + (1- \\pi) L_2\\) = 3.\n\nThis is the eqn of a line \\(\\pi x + (1-\\pi) y = 3\\) or \\(y = \\frac{-\\pi x}{1 - \\pi} + 3\\)\nStep 4: The slope of this eqn then = \\(\\frac{-\\pi }{1 - \\pi}\\)\nStep 5: As you keep dialing down 3 to a smaller number you have a line with the same negative slope sweeping across the convex hull towards the south-west, until you reach the border of the convex hull. All strategies here are Bayes strategies for the given \\(\\pi\\) .\n\n\nStep 6: For a countable number of prior distributions you’ll be able to find multiple Bayes strategies which reside in the “south-west” border of the convex hull. The set of these Bayes strategies are admissible.\n\nDifferences b/w admissible, mini-max, Bayes strategies\n\n\n\n\n\n\n\nAdmissible\nMinimax\nBayes\n\n\n\n\nWe have no prior dist of \\(\\Theta\\)\nWe have no prior dist of \\(\\Theta\\)\nDefined w.r.t. prior\n\n\nBut all admissible strategies are Bayes w.r.t. some prior(may be unknown)\nSince all minimax strategies are admissible, they are also Bayes.\n\n\n\nCan intersect with any “closed lower quadrant”\nCan only intersect with **smallest “diagonal** closed lower quadrant”"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This is the contents of the about page for my blog."
+    "text": "Hi, my name is Sowmya. I am a Ph.D. student in Biostatistics. This is a repository of my course notes."
   }
 ]
