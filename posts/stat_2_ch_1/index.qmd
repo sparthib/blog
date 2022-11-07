@@ -57,23 +57,6 @@ Suppose a physician(the player) sees a patient who may ( $\theta = \theta_{1}$) 
 
 : Probability of getting X given a certain $\theta$\
 
-: \### Different types of losses we've seen before.
-
-Mean Squared error loss:
-
-$$ 
-E[(\theta - \hat{\theta})^{2}] = Var(\theta - \hat{\theta}) + E[(\theta - \hat{\theta})]^{2} \\
-= Var(\hat{\theta}) + E[(\theta - \hat{\theta})]^{2}
-$$
-
-When $\hat{\theta}$ is **unbiased,** i.e., $E[\hat{\theta}] = \theta$ then,
-
-$$ 
-MSE = E[(\theta - \hat{\theta})^{2}] = Var(\hat{\theta}) + 0
-$$
-
-Absolute Error Loss: $| \theta - \hat{\theta}|$
-
 ### What are strategies $( s(X) )$/estimators $(\hat{\theta}(X)$?
 
 We want to have our actions be informed on data we observe.
@@ -131,8 +114,7 @@ A strategy $s(X)$ is **in**admissible if $\exists$ another strategy $s'(X)$ s.t.
 With at least one strict inequality.
 :::
 
-![Examples of strategies and losses](/images/strategies.png){width="346"}
-In the above example, $s_3$ is **uniformly worse** than \$s_2\$, i.e., it is inadmissible because, it $L(\theta_1 , s3) > L(\theta_1 , s2)$ and $L(\theta_2 , s3) > L(\theta_2 , s2)$ .
+![Examples of strategies and losses](/images/strategies.png){width="346"} In the above example, $s_3$ is **uniformly worse** than \$s_2\$, i.e., it is inadmissible because, it $L(\theta_1 , s3) > L(\theta_1 , s2)$ and $L(\theta_2 , s3) > L(\theta_2 , s2)$ .
 
 ### Mixed/Randomized Strategies:
 
@@ -248,6 +230,16 @@ Step 3: Find all strategies for which $\pi L_1 + (1- \pi) L_2$ = 3.
 
 Step 6: For a countable number of prior distributions you'll be able to find multiple Bayes strategies which reside in the "south-west" border of the convex hull. The set of these Bayes strategies are **admissible.**
 
+Bayes is not necessarily unique for a prior. There are many pts. on the edge of the convex hull that the Bayes slope can be tangential to for a given $\pi$.
+
+#### How to interpret different values of priors intuitively and geometrically:
+
+Consider the following convex hull:
+
+1.  when $\frac{\pi}{1 - \pi}$ \> 5, our slope is almost fully vertical, as it move south-west, it ends up touching $s_{1}$
+
+2.  When $\frac{\pi}{1 - \pi}$ \< 0.007, slope is almost 0, and it ends up touching $s_{4}$.
+
 | Admissible                                                                | Minimax                                                                   | Bayes                |
 |---------------------------|---------------------------|-------------------|
 | We have no prior dist of $\Theta$                                         | We have no prior dist of $\Theta$                                         | Defined w.r.t. prior |
@@ -255,3 +247,30 @@ Step 6: For a countable number of prior distributions you'll be able to find mul
 | Can intersect with **any** "closed lower quadrant"                        | Can only intersect with \*\*smallest "diagonal\*\* closed lower quadrant" |                      |
 
 : Differences b/w admissible, mini-max, Bayes strategies
+
+### Different types of losses we've seen before and what's the Bayes estimator that minimizes these:
+
+Mean Squared error loss:
+
+$$ 
+E[(\theta - \hat{\theta})^{2}] = Var(\theta - \hat{\theta}) + E[(\theta - \hat{\theta})]^{2} \\
+= Var(\hat{\theta}) + E[(\theta - \hat{\theta})]^{2}
+$$
+
+When $\hat{\theta}$ is **unbiased,** i.e., $E[\hat{\theta}] = \theta$ then,
+
+$$ 
+MSE = E[(\theta - \hat{\theta})^{2}] = Var(\hat{\theta}) + 0
+$$
+
+Here, your Bayes estimator will be the mean of the posterior distribution.
+
+Absolute Error Loss: $| \theta - \hat{\theta}|$
+
+Bayes estimator will the median of the posterior distribution.
+
+::: callout-tip
+
+For a normal posterior, the mean and the median are the same $\implies$ both types of losses have the same Bayes estimator.
+
+:::
