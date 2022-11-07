@@ -126,7 +126,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ordering-strategies" id="toc-ordering-strategies" class="nav-link" data-scroll-target="#ordering-strategies">3. Ordering Strategies</a>
   <ul class="collapse">
   <li><a href="#minimax" id="toc-minimax" class="nav-link" data-scroll-target="#minimax">Minimax</a></li>
-  <li><a href="#bayes" id="toc-bayes" class="nav-link" data-scroll-target="#bayes">Bayes</a></li>
+  <li><a href="#bayes" id="toc-bayes" class="nav-link" data-scroll-target="#bayes">Bayes</a>
+  <ul class="collapse">
+  <li><a href="#different-types-of-losses-weve-seen-before-and-whats-the-bayes-estimator-that-minimizes-these" id="toc-different-types-of-losses-weve-seen-before-and-whats-the-bayes-estimator-that-minimizes-these" class="nav-link" data-scroll-target="#different-types-of-losses-weve-seen-before-and-whats-the-bayes-estimator-that-minimizes-these">Different types of losses we’ve seen before and what’s the Bayes estimator that minimizes these:</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -254,17 +257,6 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>: ### Different types of losses we’ve seen before.</p>
-<p>Mean Squared error loss:</p>
-<p><span class="math display">\[
-E[(\theta - \hat{\theta})^{2}] = Var(\theta - \hat{\theta}) + E[(\theta - \hat{\theta})]^{2} \\
-= Var(\hat{\theta}) + E[(\theta - \hat{\theta})]^{2}
-\]</span></p>
-<p>When <span class="math inline">\(\hat{\theta}\)</span> is <strong>unbiased,</strong> i.e., <span class="math inline">\(E[\hat{\theta}] = \theta\)</span> then,</p>
-<p><span class="math display">\[
-MSE = E[(\theta - \hat{\theta})^{2}] = Var(\hat{\theta}) + 0
-\]</span></p>
-<p>Absolute Error Loss: <span class="math inline">\(| \theta - \hat{\theta}|\)</span></p>
 </section>
 <section id="what-are-strategies-sx-estimators-hatthetax" class="level3">
 <h3 class="anchored" data-anchor-id="what-are-strategies-sx-estimators-hatthetax">What are strategies <span class="math inline">\(( s(X) )\)</span>/estimators <span class="math inline">\((\hat{\theta}(X)\)</span>?</h3>
@@ -507,6 +499,15 @@ Important
 <p><img src="../../images/bayes strat.png" class="img-fluid" width="490"></p></li>
 </ul>
 <p>Step 6: For a countable number of prior distributions you’ll be able to find multiple Bayes strategies which reside in the “south-west” border of the convex hull. The set of these Bayes strategies are <strong>admissible.</strong></p>
+<p>Bayes is not necessarily unique for a prior. There are many pts. on the edge of the convex hull that the Bayes slope can be tangential to for a given <span class="math inline">\(\pi\)</span>.</p>
+</section>
+<section id="how-to-interpret-different-values-of-priors-intuitively-and-geometrically" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-interpret-different-values-of-priors-intuitively-and-geometrically">How to interpret different values of priors intuitively and geometrically:</h4>
+<p>Consider the following convex hull:</p>
+<ol type="1">
+<li><p>when <span class="math inline">\(\frac{\pi}{1 - \pi}\)</span> &gt; 5, our slope is almost fully vertical, as it move south-west, it ends up touching <span class="math inline">\(s_{1}\)</span></p></li>
+<li><p>When <span class="math inline">\(\frac{\pi}{1 - \pi}\)</span> &lt; 0.007, slope is almost 0, and it ends up touching <span class="math inline">\(s_{4}\)</span>.</p></li>
+</ol>
 <table class="table">
 <caption>Differences b/w admissible, mini-max, Bayes strategies</caption>
 <colgroup>
@@ -539,6 +540,34 @@ Important
 </tr>
 </tbody>
 </table>
+</section>
+<section id="different-types-of-losses-weve-seen-before-and-whats-the-bayes-estimator-that-minimizes-these" class="level3">
+<h3 class="anchored" data-anchor-id="different-types-of-losses-weve-seen-before-and-whats-the-bayes-estimator-that-minimizes-these">Different types of losses we’ve seen before and what’s the Bayes estimator that minimizes these:</h3>
+<p>Mean Squared error loss:</p>
+<p><span class="math display">\[
+E[(\theta - \hat{\theta})^{2}] = Var(\theta - \hat{\theta}) + E[(\theta - \hat{\theta})]^{2} \\
+= Var(\hat{\theta}) + E[(\theta - \hat{\theta})]^{2}
+\]</span></p>
+<p>When <span class="math inline">\(\hat{\theta}\)</span> is <strong>unbiased,</strong> i.e., <span class="math inline">\(E[\hat{\theta}] = \theta\)</span> then,</p>
+<p><span class="math display">\[
+MSE = E[(\theta - \hat{\theta})^{2}] = Var(\hat{\theta}) + 0
+\]</span></p>
+<p>Here, your Bayes estimator will be the mean of the posterior distribution.</p>
+<p>Absolute Error Loss: <span class="math inline">\(| \theta - \hat{\theta}|\)</span></p>
+<p>Bayes estimator will the median of the posterior distribution.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a normal posterior, the mean and the median are the same <span class="math inline">\(\implies\)</span> both types of losses have the same Bayes estimator.</p>
+</div>
+</div>
 
 
 </section>
