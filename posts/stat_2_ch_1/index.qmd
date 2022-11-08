@@ -1,8 +1,8 @@
 ---
-title: "Strategies"
+title: "Chapter 1 - Strategies: Admissible, Minimax, Bayes"
 description: "Post description"
 author: "Sowmya P"
-date: "11/1/2022"
+date: "11/7/2022"
 categories:
   - stat theory II
   - bayes
@@ -270,7 +270,23 @@ Absolute Error Loss: $| \theta - \hat{\theta}|$
 Bayes estimator will the median of the posterior distribution.
 
 ::: callout-tip
-
 For a normal posterior, the mean and the median are the same $\implies$ both types of losses have the same Bayes estimator.
-
 :::
+
+#### How to find the Bayes estimator in general? 
+
+-   You'll have to make assumptions on:
+
+    -   the loss function L($\theta$, s)
+
+    -   the prior dist: $\pi(\theta)$
+
+    -   the likelihood: $p(X | \theta)$
+
+    -   Bayes estimator minimizes $E[L(\theta, s(X) | X]$ i.e. here $X$ is fixed and we're averaging $L(\theta,  s)$ over all $\theta$ 's .
+
+    -   $E[L(\theta, s(X) | X] = \sum_{\theta}L(\theta, s) p(\theta|X)$ incase of discrete $\theta$
+
+    -   We'll repeat this process for all possible outcomes of $X$ .
+
+    -   Then we can say $S_{bayes}$ minimizes $\sum_{X}E[L(\theta, s(X) | X].p(X)$ since we're minimizing the terms piece-wise.
