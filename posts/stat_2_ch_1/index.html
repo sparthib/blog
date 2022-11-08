@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sowmya P">
-<meta name="dcterms.date" content="2022-11-01">
+<meta name="dcterms.date" content="2022-11-07">
 <meta name="description" content="Post description">
 
-<title>Sowmya’s Website - Strategies</title>
+<title>Sowmya’s Website - Chapter 1 - Strategies: Admissible, Minimax, Bayes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -139,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Strategies</h1>
+<h1 class="title">Chapter 1 - Strategies: Admissible, Minimax, Bayes</h1>
   <div class="quarto-categories">
     <div class="quarto-category">stat theory II</div>
     <div class="quarto-category">bayes</div>
@@ -165,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 1, 2022</p>
+      <p class="date">November 7, 2022</p>
     </div>
   </div>
     
@@ -568,8 +568,23 @@ Tip
 <p>For a normal posterior, the mean and the median are the same <span class="math inline">\(\implies\)</span> both types of losses have the same Bayes estimator.</p>
 </div>
 </div>
+<section id="how-to-find-the-bayes-estimator-in-general" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-find-the-bayes-estimator-in-general">How to find the Bayes estimator in general?</h4>
+<ul>
+<li><p>You’ll have to make assumptions on:</p>
+<ul>
+<li><p>the loss function L(<span class="math inline">\(\theta\)</span>, s)</p></li>
+<li><p>the prior dist: <span class="math inline">\(\pi(\theta)\)</span></p></li>
+<li><p>the likelihood: <span class="math inline">\(p(X | \theta)\)</span></p></li>
+<li><p>Bayes estimator minimizes <span class="math inline">\(E[L(\theta, s(X) | X]\)</span> i.e.&nbsp;here <span class="math inline">\(X\)</span> is fixed and we’re averaging <span class="math inline">\(L(\theta, s)\)</span> over all <span class="math inline">\(\theta\)</span> ’s .</p></li>
+<li><p><span class="math inline">\(E[L(\theta, s(X) | X] = \sum_{\theta}L(\theta, s) p(\theta|X)\)</span> incase of discrete <span class="math inline">\(\theta\)</span></p></li>
+<li><p>We’ll repeat this process for all possible outcomes of <span class="math inline">\(X\)</span> .</p></li>
+<li><p>Then we can say <span class="math inline">\(S_{bayes}\)</span> minimizes <span class="math inline">\(\sum_{X}E[L(\theta, s(X) | X].p(X)\)</span> since we’re minimizing the terms piece-wise.</p></li>
+</ul></li>
+</ul>
 
 
+</section>
 </section>
 </section>
 </section>
