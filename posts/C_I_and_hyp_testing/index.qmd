@@ -1,0 +1,24 @@
+---
+title: "Family-wise C.I. and Multiple Hypothesis Testing"
+description: " "
+author: "Sowmya P"
+date: "11/12/2022"
+categories:
+  - hypothesis testing
+  - methods
+  
+execute: 
+  freeze: auto
+---
+
+## Relationship between Family-wise Confidence Intervals and Hypothesis Testing
+
+With multiple hypothesis testing:
+
+$H_{0}$ says that all of our individual null hypotheses $H_{0i}$ are true.
+
+Then if atleast one of the $H_{0i}$ are false, then $H_{0}$ is rejected.
+
+The larger our individual $\alpha_i$ level is, that family-wise $\alpha$ level can be depending on how we control it (e.g. Bonferroni, $\alpha$ = $\alpha_i/ k$ where k is the number of hypothesis tests.)
+
+Then, in order to control how easy it is to reject $H_0$, we need to control $\alpha_i$

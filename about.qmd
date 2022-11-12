@@ -11,4 +11,4 @@ about:
 
 ## About this blog
 
-Hi, my name is Sowmya. I am a Ph.D. student in Biostatistics. This is a repository of my course notes. 
+Hi, my name is Sowmya. I am a Ph.D. student in Biostatistics. This is a repository of my course notes.

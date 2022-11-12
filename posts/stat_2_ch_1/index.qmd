@@ -241,7 +241,7 @@ Consider the following convex hull:
 2.  When $\frac{\pi}{1 - \pi}$ \< 0.007, slope is almost 0, and it ends up touching $s_{4}$.
 
 | Admissible                                                                | Minimax                                                                   | Bayes                |
-|---------------------------|---------------------------|-------------------|
+|---------------------------------------------------------------------------|---------------------------------------------------------------------------|----------------------|
 | We have no prior dist of $\Theta$                                         | We have no prior dist of $\Theta$                                         | Defined w.r.t. prior |
 | But all admissible strategies are Bayes w.r.t. some prior(may be unknown) | Since all minimax strategies are admissible, they are also Bayes.         |                      |
 | Can intersect with **any** "closed lower quadrant"                        | Can only intersect with \*\*smallest "diagonal\*\* closed lower quadrant" |                      |
@@ -273,7 +273,7 @@ Bayes estimator will the median of the posterior distribution.
 For a normal posterior, the mean and the median are the same $\implies$ both types of losses have the same Bayes estimator.
 :::
 
-#### How to find the Bayes estimator in general? 
+#### How to find the Bayes estimator in general?
 
 -   You'll have to make assumptions on:
 
@@ -283,7 +283,7 @@ For a normal posterior, the mean and the median are the same $\implies$ both typ
 
     -   the likelihood: $p(X | \theta)$
 
-    -   Bayes estimator minimizes $E[L(\theta, s(X) | X]$ i.e. here $X$ is fixed and we're averaging $L(\theta,  s)$ over all $\theta$ 's .
+    -   Bayes estimator minimizes $E[L(\theta, s(X) | X]$ i.e. here $X$ is fixed and we're averaging $L(\theta, s)$ over all $\theta$ 's .
 
     -   $E[L(\theta, s(X) | X] = \sum_{\theta}L(\theta, s) p(\theta|X)$ incase of discrete $\theta$
 
