@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.sowmya-parthiban.com/index.html</loc>
-    <lastmod>2022-11-04T02:27:54.270Z</lastmod>
+    <lastmod>2022-11-14T10:10:40.588Z</lastmod>
   </url>
   <url>
     <loc>https://www.sowmya-parthiban.com/about.html</loc>
-    <lastmod>2022-11-02T16:40:36.595Z</lastmod>
+    <lastmod>2022-11-14T10:09:54.615Z</lastmod>
   </url>
   <url>
     <loc>https://www.sowmya-parthiban.com/posts/strategies.html</loc>
@@ -18,10 +18,18 @@
   </url>
   <url>
     <loc>https://www.sowmya-parthiban.com/posts/stat_2_ch_1/index.html</loc>
-    <lastmod>2022-11-04T02:27:57.363Z</lastmod>
+    <lastmod>2022-11-14T10:09:54.291Z</lastmod>
   </url>
   <url>
     <loc>https://www.sowmya-parthiban.com/listings.html</loc>
     <lastmod>2022-11-02T12:02:36.678Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sowmya-parthiban.com/posts/FWER vs FDR /index.html</loc>
+    <lastmod>2022-11-14T10:10:42.402Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sowmya-parthiban.com/posts/C_I_and_hyp_testing/index.html</loc>
+    <lastmod>2022-11-14T10:09:53.834Z</lastmod>
   </url>
 </urlset>

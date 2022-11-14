@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sowmya P">
-<meta name="dcterms.date" content="2022-11-01">
+<meta name="dcterms.date" content="2022-11-07">
 <meta name="description" content="Post description">
 
-<title>Sowmya’s Website - Strategies</title>
+<title>Sowmya’s Website - Chapter 1 - Strategies: Admissible, Minimax, Bayes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,7 +119,10 @@ ul.task-list{list-style: none;}
   <li><a href="#ordering-strategies" id="toc-ordering-strategies" class="nav-link" data-scroll-target="#ordering-strategies">3. Ordering Strategies</a>
   <ul class="collapse">
   <li><a href="#minimax" id="toc-minimax" class="nav-link" data-scroll-target="#minimax">Minimax</a></li>
-  <li><a href="#bayes" id="toc-bayes" class="nav-link" data-scroll-target="#bayes">Bayes</a></li>
+  <li><a href="#bayes" id="toc-bayes" class="nav-link" data-scroll-target="#bayes">Bayes</a>
+  <ul class="collapse">
+  <li><a href="#different-types-of-losses-weve-seen-before-and-whats-the-bayes-estimator-that-minimizes-these" id="toc-different-types-of-losses-weve-seen-before-and-whats-the-bayes-estimator-that-minimizes-these" class="nav-link" data-scroll-target="#different-types-of-losses-weve-seen-before-and-whats-the-bayes-estimator-that-minimizes-these">Different types of losses we’ve seen before and what’s the Bayes estimator that minimizes these:</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -129,7 +132,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Strategies</h1>
+<h1 class="title">Chapter 1 - Strategies: Admissible, Minimax, Bayes</h1>
   <div class="quarto-categories">
     <div class="quarto-category">stat theory II</div>
     <div class="quarto-category">bayes</div>
@@ -155,7 +158,7 @@ ul.task-list{list-style: none;}
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 1, 2022</p>
+      <p class="date">November 7, 2022</p>
     </div>
   </div>
     
@@ -247,17 +250,6 @@ ul.task-list{list-style: none;}
 </tr>
 </tbody>
 </table>
-<p>### Different types of losses we’ve seen before:</p>
-<p>Mean Squared error loss:</p>
-<p><span class="math display">\[
-E[(\theta - \hat{\theta})^{2}] = Var(\theta - \hat{\theta}) + E[(\theta - \hat{\theta})]^{2} \\
-= Var(\hat{\theta}) + E[(\theta - \hat{\theta})]^{2}
-\]</span></p>
-<p>When <span class="math inline">\(\hat{\theta}\)</span> is <strong>unbiased,</strong> i.e., <span class="math inline">\(E[\hat{\theta}] = \theta\)</span> then,</p>
-<p><span class="math display">\[
-MSE = E[(\theta - \hat{\theta})^{2}] = Var(\hat{\theta}) + 0
-\]</span></p>
-<p>Absolute Error Loss: <span class="math inline">\(| \theta - \hat{\theta}|\)</span></p>
 </section>
 <section id="what-are-strategies-sx-estimators-hatthetax" class="level3">
 <h3 class="anchored" data-anchor-id="what-are-strategies-sx-estimators-hatthetax">What are strategies <span class="math inline">\(( s(X) )\)</span>/estimators <span class="math inline">\((\hat{\theta}(X)\)</span>?</h3>
@@ -512,9 +504,9 @@ Important
 <table class="table">
 <caption>Differences b/w admissible, mini-max, Bayes strategies</caption>
 <colgroup>
-<col style="width: 36%">
-<col style="width: 36%">
-<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 43%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -541,8 +533,51 @@ Important
 </tr>
 </tbody>
 </table>
+</section>
+<section id="different-types-of-losses-weve-seen-before-and-whats-the-bayes-estimator-that-minimizes-these" class="level3">
+<h3 class="anchored" data-anchor-id="different-types-of-losses-weve-seen-before-and-whats-the-bayes-estimator-that-minimizes-these">Different types of losses we’ve seen before and what’s the Bayes estimator that minimizes these:</h3>
+<p>Mean Squared error loss:</p>
+<p><span class="math display">\[
+E[(\theta - \hat{\theta})^{2}] = Var(\theta - \hat{\theta}) + E[(\theta - \hat{\theta})]^{2} \\
+= Var(\hat{\theta}) + E[(\theta - \hat{\theta})]^{2}
+\]</span></p>
+<p>When <span class="math inline">\(\hat{\theta}\)</span> is <strong>unbiased,</strong> i.e., <span class="math inline">\(E[\hat{\theta}] = \theta\)</span> then,</p>
+<p><span class="math display">\[
+MSE = E[(\theta - \hat{\theta})^{2}] = Var(\hat{\theta}) + 0
+\]</span></p>
+<p>Here, your Bayes estimator will be the mean of the posterior distribution.</p>
+<p>Absolute Error Loss: <span class="math inline">\(| \theta - \hat{\theta}|\)</span></p>
+<p>Bayes estimator will the median of the posterior distribution.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a normal posterior, the mean and the median are the same <span class="math inline">\(\implies\)</span> both types of losses have the same Bayes estimator.</p>
+</div>
+</div>
+<section id="how-to-find-the-bayes-estimator-in-general" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-find-the-bayes-estimator-in-general">How to find the Bayes estimator in general?</h4>
+<ul>
+<li><p>You’ll have to make assumptions on:</p>
+<ul>
+<li><p>the loss function L(<span class="math inline">\(\theta\)</span>, s)</p></li>
+<li><p>the prior dist: <span class="math inline">\(\pi(\theta)\)</span></p></li>
+<li><p>the likelihood: <span class="math inline">\(p(X | \theta)\)</span></p></li>
+<li><p>Bayes estimator minimizes <span class="math inline">\(E[L(\theta, s(X) | X]\)</span> i.e.&nbsp;here <span class="math inline">\(X\)</span> is fixed and we’re averaging <span class="math inline">\(L(\theta, s)\)</span> over all <span class="math inline">\(\theta\)</span> ’s .</p></li>
+<li><p><span class="math inline">\(E[L(\theta, s(X) | X] = \sum_{\theta}L(\theta, s) p(\theta|X)\)</span> incase of discrete <span class="math inline">\(\theta\)</span></p></li>
+<li><p>We’ll repeat this process for all possible outcomes of <span class="math inline">\(X\)</span> .</p></li>
+<li><p>Then we can say <span class="math inline">\(S_{bayes}\)</span> minimizes <span class="math inline">\(\sum_{X}E[L(\theta, s(X) | X].p(X)\)</span> since we’re minimizing the terms piece-wise.</p></li>
+</ul></li>
+</ul>
 
 
+</section>
 </section>
 </section>
 </section>
