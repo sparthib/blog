@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Sowmya's Website"
+  title: ""
   site-url: https://www.sowmya-parthiban.com
   description: "my blog"
   
