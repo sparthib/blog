@@ -1,0 +1,49 @@
+---
+title: "Principles of Data Reduction"
+description: "Chapter 6. Casella Berger"
+author: "Sowmya P"
+date: "11/14/2022"
+
+categories:
+  - stat theory 
+  - bayes
+  
+execute: 
+  freeze: auto
+---
+
+# 6.1 Introduction
+
+We use information from a sample $X_1 … X_n$ to make inferences about a population parameter $\theta$.
+
+Often, $n$ is too large and we can't make sense of it without summarizing.
+
+Some common ways to summarize are, calculating the mean, variance, max, min etc.
+
+#### Notation:
+
+$\underset{\sim}{X}$ is a random vector denoting the random variables $X_1 … X_n$.
+
+$\times$ denotes an observed vector of $x_1 .. x_n$
+
+$\chi$ sample space of all possible samples $X$
+
+$\mathcal{T}$ all possible values of $T(.)$ over $\chi$
+
+::: callout-note
+## Definition of a statistic
+
+$T(\underset{\sim}{X})$ a statistic is any form of data reduction.
+:::
+
+Suppose we have two observed samples $x$ ang $y$ and we discard them after converting to $T(x)$ and $T(y)$. If $T(x) = T(y)$ then both samples are treated as the same to the experimenter.
+
+The goal of the chapter is to study methods that discard information from the sample such that as much useful information about $\theta$ is retained.
+
+# 6.2 The Sufficiency Principle
+
+::: callout-note
+
+\## Sufficient Statistic
+
+A statistic $T(\underset{\sim}{X})$is sufficient for $\theta$ if $P(\underset{\sim}{X} | T(X))$ does not depend on $\theta$

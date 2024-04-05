@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Hi, my name is Sowmya. I am a Ph.D. student in Biostatistics. This is a repository of my course notes."
+    "text": "Hi! I am Sowmya. I am a Ph.D. student in Biostatistics, with a focus in developing bioinformatics pipelines and statistical tools for long-read mRNA sequencing to explore isoform expression."
   },
   {
     "objectID": "posts/strategies.html",
@@ -74,7 +74,7 @@
     "href": "index.html",
     "title": "Sowmya’s blog",
     "section": "",
-    "text": "hypothesis testing\n\n\n\n\n\n\n\n\n\n\n\nNov 14, 2022\n\n\nSowmya P\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhypothesis testing\n\n\nmethods\n\n\n\n\n\n\n\n\n\n\n\nNov 12, 2022\n\n\nSowmya P\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nstat theory II\n\n\nbayes\n\n\n\n\nPost description\n\n\n\n\n\n\nNov 7, 2022\n\n\nSowmya P\n\n\n\n\n\n\nNo matching items"
+    "text": "Lessons learned:\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nPrinciples of Data Reduction\n\n\n\n\n\n\n\nstat theory\n\n\nbayes\n\n\n\n\nChapter 6. Casella Berger\n\n\n\n\n\n\nNov 14, 2022\n\n\nSowmya P\n\n\n\n\n\n\n  \n\n\n\n\nFamily-wise Error Rate and FDR\n\n\n\n\n\n\n\nhypothesis testing\n\n\n\n\n\n\n\n\n\n\n\nNov 14, 2022\n\n\nSowmya P\n\n\n\n\n\n\n  \n\n\n\n\nFamily-wise C.I. and Multiple Hypothesis Testing\n\n\n\n\n\n\n\nhypothesis testing\n\n\nmethods\n\n\n\n\n\n\n\n\n\n\n\nNov 12, 2022\n\n\nSowmya P\n\n\n\n\n\n\n  \n\n\n\n\nChapter 1 - Strategies: Admissible, Minimax, Bayes\n\n\n\n\n\n\n\nstat theory II\n\n\nbayes\n\n\n\n\nPost description\n\n\n\n\n\n\nNov 7, 2022\n\n\nSowmya P\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/FWER vs FDR /index.html",
@@ -89,5 +89,26 @@
     "title": "Family-wise C.I. and Multiple Hypothesis Testing",
     "section": "",
     "text": "With multiple hypothesis testing:\n\\(H_{0}\\) says that all of our individual null hypotheses \\(H_{0i}\\) are true.\nThen if atleast one of the \\(H_{0i}\\) are false, then \\(H_{0}\\) is rejected.\nThe larger our individual \\(\\alpha_i\\) level is, that family-wise \\(\\alpha\\) level can be depending on how we control it (e.g. Bonferroni, \\(\\alpha\\) = \\(\\alpha_i/ k\\) where k is the number of hypothesis tests.)\nThen, in order to control how easy it is to reject \\(H_0\\), we need to control \\(\\alpha_i\\)"
+  },
+  {
+    "objectID": "posts/Sufficient Stats/index.html",
+    "href": "posts/Sufficient Stats/index.html",
+    "title": "Principles of Data Reduction",
+    "section": "",
+    "text": "6.1 Introduction\nWe use information from a sample \\(X_1 … X_n\\) to make inferences about a population parameter \\(\\theta\\).\nOften, \\(n\\) is too large and we can’t make sense of it without summarizing.\nSome common ways to summarize are, calculating the mean, variance, max, min etc.\n\nNotation:\n\\(\\underset{\\sim}{X}\\) is a random vector denoting the random variables \\(X_1 … X_n\\).\n\\(\\times\\) denotes an observed vector of \\(x_1 .. x_n\\)\n\\(\\chi\\) sample space of all possible samples \\(X\\)\n\\(\\mathcal{T}\\) all possible values of \\(T(.)\\) over \\(\\chi\\)\n\n\n\n\n\n\nDefinition of a statistic\n\n\n\n\\(T(\\underset{\\sim}{X})\\) a statistic is any form of data reduction.\n\n\nSuppose we have two observed samples \\(x\\) ang \\(y\\) and we discard them after converting to \\(T(x)\\) and \\(T(y)\\). If \\(T(x) = T(y)\\) then both samples are treated as the same to the experimenter.\nThe goal of the chapter is to study methods that discard information from the sample such that as much useful information about \\(\\theta\\) is retained.\n\n\n\n6.2 The Sufficiency Principle\n::: callout-note\n## Sufficient Statistic\nA statistic \\(T(\\underset{\\sim}{X})\\)is sufficient for \\(\\theta\\) if \\(P(\\underset{\\sim}{X} | T(X))\\) does not depend on \\(\\theta\\)"
+  },
+  {
+    "objectID": "posts/Why is Restrander processing only 78% of my reads? /index.html",
+    "href": "posts/Why is Restrander processing only 78% of my reads? /index.html",
+    "title": "",
+    "section": "",
+    "text": "Recently, I have been exploring upstream processing methods for long -read RNA seq data.\nOne of the tools that caught my attention was Restrander , a tool meant for read orientation of long-read cDNA sequencing, due to its high-accuracy and speed compared to other tools. Naturally I wanted to test this claim.\nIt outputs the statistics of the oriented fastq file in an easily understandable json format.\nThese are the results of one of my fastq files: As I was in the process of making sense of the numbers, I noticed that the total number of reads wasn’t adding up to [INSERT REST OF LINES]\nIt was ~78% for al\nThis seemed to be the case for all of them.\nI spent a few hours trying to figure out what could have possibly been the problem -\nWhy was it consistently breaking at the first 78% of the reads? It isn’t possible that the fastq files were corrupted since another researcher was successfully able to convert them to bam files.\nWait, was it even the first 78, or just 78% in general? I split the fastq file into two output files: all reads upto the [ INSERT NUM] 27th into first, and the rest into another. Guess what, the second file didn’t have any reads. Then why does my code say that my fastq file has … I simply could not understand what was happening, but the workday had come to an end and my brain was exhausted.\nThe next morning, I’m discussing this issue with my colleague Andrew Chin, and it occurs to me that I am not dealing with fastq but rather a .fastq.gz file. And when you compress a file, the number of lines changes, and trying out something like\nwc -l input.fastq.gz will result in a nonsensical value.\nWhat I really should have done was zcat input.fastq.gz | wc -l since zcat decompresses the file, yielding the correct number of lines in your input file. And voila, Restrander ’s output stats now match with my results.\nI’d also asked the authors for clarification on how to interpret the log of their output.\nFrom here: [LINK TO GITHUB ISSUE]\n\nLessons learned:\n\nMake sure the code you use to validate the software’s results is right.\nCheck your input data. fastq files tend to be really large. When you are dealing with ~27million reads, that’s 27M*4= 108M lines. Because these sequences tend to be random, they compression doesn’t go a long way in reducing size. In this case, it is faster and easier to figure out if there are kinks in your input, if the file is split into, say 108 files containing a million lines each and processed parallely.\nIf the previous two steps don’t turn out to be successful, and if documentation of software isn’t clear, it then makes sense to ask the authors for clarification. Especially in the case when it is a new software and you are probably one of the first few people to have run into a confusion."
+  },
+  {
+    "objectID": "about.html#about-me",
+    "href": "about.html#about-me",
+    "title": "About",
+    "section": "",
+    "text": "Hi! I am Sowmya. I am a Ph.D. student in Biostatistics, with a focus in developing bioinformatics pipelines and statistical tools for long-read mRNA sequencing to explore isoform expression."
   }
 ]

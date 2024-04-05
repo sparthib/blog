@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.sowmya-parthiban.com/index.html</loc>
-    <lastmod>2022-11-14T10:10:40.588Z</lastmod>
+    <lastmod>2024-04-05T17:55:57.935Z</lastmod>
   </url>
   <url>
     <loc>https://www.sowmya-parthiban.com/about.html</loc>
-    <lastmod>2022-11-14T10:09:54.615Z</lastmod>
+    <lastmod>2024-04-05T17:55:57.386Z</lastmod>
   </url>
   <url>
     <loc>https://www.sowmya-parthiban.com/posts/strategies.html</loc>
@@ -31,5 +31,13 @@
   <url>
     <loc>https://www.sowmya-parthiban.com/posts/C_I_and_hyp_testing/index.html</loc>
     <lastmod>2022-11-14T10:09:53.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sowmya-parthiban.com/posts/Sufficient Stats/index.html</loc>
+    <lastmod>2024-04-05T17:55:59.342Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sowmya-parthiban.com/posts/Why is Restrander processing only 78% of my reads? /index.html</loc>
+    <lastmod>2024-04-05T17:55:57.057Z</lastmod>
   </url>
 </urlset>

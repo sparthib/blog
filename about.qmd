@@ -7,8 +7,14 @@ about:
     - icon: twitter
       text: Twitter
       href: https://twitter.com/sowmyapartybun
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/sowmya-parthiban/
+    - icon: github
+      text: GitHub
+      href: https://github.com/sparthib
 ---
 
-## About this blog
+## About Me
 
 Hi! I am Sowmya. I am a Ph.D. student in Biostatistics, with a focus in developing bioinformatics pipelines and statistical tools for long-read mRNA sequencing to explore isoform expression.
