@@ -15,7 +15,6 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
       - teaching.qmd
       - talks_and_posters.qmd
       - publications.qmd
