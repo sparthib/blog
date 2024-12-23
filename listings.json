@@ -1,7 +1,14 @@
 [
   {
+    "listing": "/listings.html",
+    "items": [
+      "/posts/stat_2_ch_1/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/posts/Why is Restrander processing only 78% of my reads? /index.html",
       "/posts/Sufficient Stats/index.html",
       "/posts/FWER vs FDR /index.html",
       "/posts/C_I_and_hyp_testing/index.html",
