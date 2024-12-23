@@ -18,7 +18,7 @@ website:
       - about.qmd
       - teaching.qmd
       - talks_and_posters.qmd
-
+      - publications.qmd
 format:
   html:
     theme: journal

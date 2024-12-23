@@ -131,5 +131,19 @@
     "title": "Talks, Posters, and Hackathons",
     "section": "",
     "text": "JHU TRAC Hackday 2024, Baltimore\nDecember 2024\n- Led analysis of pseudobulk single-cell RNA-seq data with a team of 8, identifying functional impacts of upregulated genes in CD4/CD8 T-cells.\n\n\nStatgen 2024, Pittsburgh\nMay 2024\n- Short talk: Analysis of mRNA isoforms using long-read transcriptomics in human stem cell-derived retinal neurons.\n\n\nLecture, Johns Hopkins University (Computational Genomics: Data Analysis EN 580.448)\nApril 2024\n- Lecture: Introduction to Data Analysis for Bulk Long-Read Transcriptomics Studies.\n\n\nSingle Cell Symposium, Baltimore\nNovember 2023\n- Poster session: Spatial Multi-omic Profiling of Alzheimer’s Disease in the Human Inferior Temporal Cortex.\n\n\nBioconductor 2023, Boston\nAugust 2023\n- Short talk: Spatial Multi-omic Profiling of Alzheimer’s Disease in the Human Inferior Temporal Cortex."
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Sang Ho Kwon, Sowmya Parthiban, Madhavi Tippani, Heena R. Divecha, Nicholas J. Eagles, Jashandeep S. Lobana, Stephen R. Williams, Michelle Mak, Rahul A. Bharadwaj, Joel E. Kleinman, Thomas M. Hyde, Stephanie C. Page, Stephanie C. Hicks, Keri Martinowich, Kristen R. Maynard, and Leonardo Collado-Torres. GEN Biotechnology. Oct 2023, 399-417. http://doi.org/10.1089/genbio.2023.0019\n\n\n\nManning P, Daghighi S, Rajaratnam MK, Sowmya Parthiban, Bahrami N, Dale AM, Bolar D, Piccioni DE, McDonald CR, Farid N.\nJ Neurooncol. May 2020; 147(3):681-690. https://doi.org/10.1007/s11060-020-03475-y"
+  },
+  {
+    "objectID": "publications.html#publications",
+    "href": "publications.html#publications",
+    "title": "Publications",
+    "section": "",
+    "text": "Sang Ho Kwon, Sowmya Parthiban, Madhavi Tippani, Heena R. Divecha, Nicholas J. Eagles, Jashandeep S. Lobana, Stephen R. Williams, Michelle Mak, Rahul A. Bharadwaj, Joel E. Kleinman, Thomas M. Hyde, Stephanie C. Page, Stephanie C. Hicks, Keri Martinowich, Kristen R. Maynard, and Leonardo Collado-Torres. GEN Biotechnology. Oct 2023, 399-417. http://doi.org/10.1089/genbio.2023.0019\n\n\n\nManning P, Daghighi S, Rajaratnam MK, Sowmya Parthiban, Bahrami N, Dale AM, Bolar D, Piccioni DE, McDonald CR, Farid N.\nJ Neurooncol. May 2020; 147(3):681-690. https://doi.org/10.1007/s11060-020-03475-y"
   }
 ]

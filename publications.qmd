@@ -1,0 +1,14 @@
+---
+title: "Publications"
+---
+
+
+## Publications
+
+### Influence of Alzheimer's Disease Related Neuropathology on Local Microenvironment Gene Expression in the Human Inferior Temporal Cortex
+Sang Ho Kwon, **Sowmya Parthiban**, Madhavi Tippani, Heena R. Divecha, Nicholas J. Eagles, Jashandeep S. Lobana, Stephen R. Williams, Michelle Mak, Rahul A. Bharadwaj, Joel E. Kleinman, Thomas M. Hyde, Stephanie C. Page, Stephanie C. Hicks, Keri Martinowich, Kristen R. Maynard, and Leonardo Collado-Torres.
+*GEN Biotechnology.* Oct 2023, 399-417. [http://doi.org/10.1089/genbio.2023.0019](http://doi.org/10.1089/genbio.2023.0019)
+
+### Differentiation of Progressive Disease from Pseudoprogression Using 3D PCASL and DSC Perfusion MRI in Patients with Glioblastoma
+Manning P, Daghighi S, Rajaratnam MK, **Sowmya Parthiban**, Bahrami N, Dale AM, Bolar D, Piccioni DE, McDonald CR, Farid N.  
+*J Neurooncol.* May 2020; 147(3):681-690. [https://doi.org/10.1007/s11060-020-03475-y](https://doi.org/10.1007/s11060-020-03475-y)
