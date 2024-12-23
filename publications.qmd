@@ -3,8 +3,6 @@ title: "Publications"
 ---
 
 
-## Publications
-
 ### Influence of Alzheimer's Disease Related Neuropathology on Local Microenvironment Gene Expression in the Human Inferior Temporal Cortex
 Sang Ho Kwon, **Sowmya Parthiban**, Madhavi Tippani, Heena R. Divecha, Nicholas J. Eagles, Jashandeep S. Lobana, Stephen R. Williams, Michelle Mak, Rahul A. Bharadwaj, Joel E. Kleinman, Thomas M. Hyde, Stephanie C. Page, Stephanie C. Hicks, Keri Martinowich, Kristen R. Maynard, and Leonardo Collado-Torres.
 *GEN Biotechnology.* Oct 2023, 399-417. [http://doi.org/10.1089/genbio.2023.0019](http://doi.org/10.1089/genbio.2023.0019)

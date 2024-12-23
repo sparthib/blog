@@ -2,7 +2,6 @@
 title: "Teaching Experience"
 ---
 
-## Teaching Experience
 
 ### Johns Hopkins Bloomberg School of Public Health  
 **Graduate Teaching Assistant (Multilevel and Longitudinal Modeling)**  
