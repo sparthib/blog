@@ -5,7 +5,7 @@ project:
 website:
   title: ""
   site-url: https://www.sowmya-parthiban.com
-  description: "my blog"
+  description: "Welcome!"
   
   navbar:
     right:
@@ -16,6 +16,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - teaching.qmd
+      - talks_and_posters.qmd
 
 format:
   html:
