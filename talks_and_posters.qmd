@@ -21,7 +21,6 @@ title: "Talks, Posters, and Hackathons"
 ### Bioconductor 2023, Boston  
 *August 2023*  
 - **Short talk**: Spatial Multi-omic Profiling of Alzheimer’s Disease in the Human Inferior Temporal Cortex.
-
 ::: {.video-embed}
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=YA5H2XP6jjU&list=PLdl4u5ZRDMQRVvXBi29h7MDtRn-AQGlXS&index=4" frameborder="0" allowfullscreen></iframe>
 :::
