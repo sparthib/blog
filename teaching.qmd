@@ -2,15 +2,13 @@
 title: "Teaching Experience"
 ---
 
+# Teaching Experience
 
-### Johns Hopkins Bloomberg School of Public Health  
-**Graduate Teaching Assistant (Multilevel and Longitudinal Modeling)**  
-*August 2024 - December 2024*  
-- Conducted discussion sections for students on exploring multilevel and longitudinal data.  
-- Covered linear and generalized linear regression models for correlated data, including marginal and random effects.
+**Johns Hopkins Bloomberg School of Public Health** | *August 2023 – Present*
 
-### Johns Hopkins Bloomberg School of Public Health  
-**Graduate Teaching Assistant (Statistical Methods in Public Health I - III)**  
-*August 2023 - May 2024*  
-- Conducted discussion sections for students on statistical methods such as random sampling, general linear regression, power analysis, hypothesis testing, and survival analysis.
-- Assisted students with statistical software such as R and Stata.
+### Teaching Assistant, Artificial Intelligence for Improved Patient Outcomes
+- Supported instruction in a course exploring applications of AI in healthcare, including predictive modeling, clinical decision support, and patient outcome optimization.
+
+### Graduate Teaching Assistant, Statistical Methods in Public Health I–III & MPH Capstone Course
+- Conduct discussion sections on statistical methods, including random sampling, general linear regression for correlated data, power analysis, hypothesis testing, and survival analysis.
+- Assist students with statistical software such as R and Stata.

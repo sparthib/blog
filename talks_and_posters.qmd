@@ -2,24 +2,29 @@
 title: "Talks, Posters, and Hackathons"
 ---
 
-### JHU TRAC Hackday 2024, Baltimore  
-*December 2024*  
+### JHU TRAC Hackday 2024, Baltimore
+
+*December 2024*\
 - Led analysis of pseudobulk single-cell RNA-seq data with a team of 8, identifying functional impacts of upregulated genes in CD4/CD8 T-cells.
 
-### Statgen 2024, Pittsburgh  
-*May 2024*  
+### Statgen 2024, Pittsburgh
+
+*May 2024*\
 - **Short talk**: Analysis of mRNA isoforms using long-read transcriptomics in human stem cell-derived retinal neurons.
 
-### Lecture, Johns Hopkins University (Computational Genomics: Data Analysis EN 580.448)  
-*April 2024*  
+### Lecture, Johns Hopkins University (Computational Genomics: Data Analysis EN 580.448)
+
+*April 2024*\
 - **Lecture**: Introduction to Data Analysis for Bulk Long-Read Transcriptomics Studies.
 
-### Single Cell Symposium, Baltimore  
-*November 2023*  
+### Single Cell Symposium, Baltimore
+
+*November 2023*\
 - **Poster session**: Spatial Multi-omic Profiling of Alzheimer’s Disease in the Human Inferior Temporal Cortex.
 
-### Bioconductor 2023, Boston  
-*August 2023*  
+### Bioconductor 2023, Boston
+
+*August 2023*\
 - **Short talk**: Spatial Multi-omic Profiling of Alzheimer’s Disease in the Human Inferior Temporal Cortex.
 
 {{< video https://www.youtube.com/watch?v=YA5H2XP6jjU&t=2003s >}}
