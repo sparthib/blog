@@ -2,6 +2,11 @@
 title: "Talks, Posters, and Hackathons"
 ---
 
+### CSHL Biology of Genomes 2025, Long Island
+
+*May 2025*\
+- Poster: Isoform quantification and coverage  biases in long-read transcriptomics data
+
 ### JHU TRAC Hackday 2024, Baltimore
 
 *December 2024*\
