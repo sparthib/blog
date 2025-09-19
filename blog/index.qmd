@@ -1,0 +1,8 @@
+---
+title: "Blog"
+listing:
+  contents: .   # means "list all posts in this folder"
+  type: default # card/list layout
+  sort: "date desc"
+  categories: true
+---

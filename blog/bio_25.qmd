@@ -1,0 +1,6 @@
+---
+title: "My Experience at BIO 25"
+description: "Reflections from attending the largest biotech event in Boston."
+date: 2025-08-01
+categories: [conference, biotech]
+---

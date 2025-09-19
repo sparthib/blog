@@ -1,0 +1,6 @@
+# blog/_metadata.yml
+author: "Sowmya Parthiban"
+format:
+  html:
+    toc: true
+    toc-depth: 2
