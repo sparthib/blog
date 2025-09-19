@@ -14,5 +14,11 @@
       "/posts/C_I_and_hyp_testing/index.html",
       "/posts/stat_2_ch_1/index.html"
     ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/bio_25.html"
+    ]
   }
 ]
