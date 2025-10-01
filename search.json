@@ -18,7 +18,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Building an R Package with a Rust Backend: My longReads Side Project\n\n\n\nR\n\nRust\n\nbioinformatics\n\nside project\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nSowmya Parthiban\n\n\n\n\n\n\n\n\n\n\n\n\nMy Experience at BIO 25\n\n\n\nconference\n\nbiotech\n\n\n\nReflections from attending the largest biotech event in Boston.\n\n\n\n\n\nAug 1, 2025\n\n\nSowmya Parthiban\n\n\n\n\n\nNo matching items"
+    "text": "Building an R bioinformatics Package with a Rust Backend\n\n\n\nR\n\nRust\n\nbioinformatics\n\nside project\n\n\n\nA library for fast read-level analysis of long-read FASTQ files\n\n\n\n\n\nSep 30, 2025\n\n\nSowmya Parthiban\n\n\n\n\n\n\n\n\n\n\n\n\nMy Experience at BIO 25\n\n\n\nconference\n\nbiotech\n\n\n\nReflections from attending the largest biotech event in Boston.\n\n\n\n\n\nAug 1, 2025\n\n\nSowmya Parthiban\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -135,15 +135,15 @@
   {
     "objectID": "blog/longReads.html",
     "href": "blog/longReads.html",
-    "title": "Building an R Package with a Rust Backend: My longReads Side Project",
+    "title": "Building an R bioinformatics Package with a Rust Backend",
     "section": "",
-    "text": "Analyzing long-read FASTQ data in R can be challenging. ShortRead exists, but it was designed for short reads and struggles with the longer lengths typical of long-read sequencing. Existing Python-based tools provide only high-level summaries, lacking read-level detail.\nTo address this, I developed an R package that leverages Rust to efficiently process FASTQ files and extract subsets of reads based on GC content, average quality score, and read length. It works — and performs very well. Installation details can be found here."
+    "text": "Analyzing long-read FASTQ data in R can be challenging. The ShortRead R library exists, but it was designed for short reads and struggles with the longer lengths typical of long-read sequencing. Existing Python-based tools provide only high-level summaries, lacking read-level detail.\nTo address this, I developed an R library that leverages Rust to efficiently process FASTQ files and extract subsets of reads based on GC content, average quality score, and read length. Installation details can be found here."
   },
   {
     "objectID": "blog/longReads.html#introducing-longreads",
     "href": "blog/longReads.html#introducing-longreads",
-    "title": "Building an R Package with a Rust Backend: My longReads Side Project",
+    "title": "Building an R bioinformatics Package with a Rust Backend",
     "section": "Introducing longReads",
-    "text": "Introducing longReads\nlongReads provides a fast read-level summary of FASTQ files. The main function, analyze_fastq_r, outputs a list with these columns:\n\n\n\nColumn\nDescription\n\n\n\n\nread_id\nIdentifier of the read\n\n\nlength\nLength of the read in base pairs\n\n\navg_quality\nAverage Phred quality score\n\n\ngc_content\nGC content percentage\n\n\n\nIt uses bio::io::fastq for parsing in Rust and exposes the results to R.\nInstallation details can be found here.\nTry it out and see how it works!"
+    "text": "Introducing longReads\nlongReads provides a fast read-level summary of FASTQ files. The main function, analyze_fastq_r, outputs a list with these columns:\n\n\n\nColumn\nDescription\n\n\n\n\nread_id\nIdentifier of the read\n\n\nlength\nLength of the read in base pairs\n\n\navg_quality\nAverage Phred quality score\n\n\ngc_content\nGC content percentage\n\n\n\nIt uses bio::io::fastq for parsing in Rust and exposes the results to R.\nYou can try it out by following the instructions here."
   }
 ]
