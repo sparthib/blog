@@ -7,9 +7,9 @@ code-copy: true
 
 ## **Understanding Flagstat Output for Nanopore Reads**
 
-`Minimap2` is the most popular aligner for long reads such as nanopore. Once this step is done, interpreting alignment quality from the `samtools flagstat` output is slightly different from short-read data:
+`Minimap2` is the most popular aligner for long reads such as nanopore(ONT). Once this step is done, interpreting alignment quality from the `samtools flagstat` output is slightly different from short-read data:
 
-Here's an example flagstat file:
+Here's an example flagstat file of an ONT bam file:
 
 ```bash
 37420089 + 0 in total (QC-passed reads + QC-failed reads)
