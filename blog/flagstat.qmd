@@ -1,7 +1,7 @@
 ---
 title: "Extracting High Quality Alignments from ONT BAM Files"
 date: 2025-10-06
-description: Interpreting the `samtools flagstat` command for ONT sequencing.
+description: Interpreting the `samtools flagstat` command for ONT RNA-Seq data processing.
 categories: [nanopore, bioinformatics]
 code-copy: true
 ---
