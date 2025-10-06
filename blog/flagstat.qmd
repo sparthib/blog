@@ -37,7 +37,7 @@ Let's break these down.
 **Primary alignments**: By default all reads in your input FASTQ are considered a "primary" alignment regardless of whether or not they map to the reference genome/transcriptome. So this number should equal the total number of reads in your input FASTQ which can be checked in the terminal with
 
 ```bash
-wc -l $path_to_fastq_dir/input.fastq
+echo $(( $(wc -l < $path_to_fastq_dir/input.fastq) / 4 ))
 ```
 
 **Secondary alignments**: These occur when a read maps to more than one location in the genome. A large number of secondary alignments can indicate ambiguity in read placement.
