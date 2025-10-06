@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -41,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8610558a007458a9b978551a034f4d85.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-71eceaf19394785f50bf547658fe0afb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -175,49 +210,46 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="understanding-flagstat-output-for-nanopore-reads" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-flagstat-output-for-nanopore-reads"><strong>Understanding Flagstat Output for Nanopore Reads</strong></h2>
-<p><code>Minimap2</code> is the most popular aligned for long reads such as nanopore. Once this step is done,<br>
-interpreting alignment quality from the <code>samtools flagstat</code> output is slightly different from short-read data:</p>
+<p><code>Minimap2</code> is the most popular aligner for long reads such as nanopore. Once this step is done, interpreting alignment quality from the <code>samtools flagstat</code> output is slightly different from short-read data:</p>
 <p>Here’s an example flagstat file:</p>
-<pre class="{bash}"><code>37420089 + 0 in total (QC-passed reads + QC-failed reads)
-13703013 + 0 primary
-22248085 + 0 secondary
-1468991 + 0 supplementary
-0 + 0 duplicates
-0 + 0 primary duplicates
-37133268 + 0 mapped (99.23% : N/A)
-13416192 + 0 primary mapped (97.91% : N/A)
-0 + 0 paired in sequencing
-0 + 0 read1
-0 + 0 read2
-0 + 0 properly paired (N/A : N/A)
-0 + 0 with itself and mate mapped
-0 + 0 singletons (N/A : N/A)
-0 + 0 with mate mapped to a different chr
-0 + 0 with mate mapped to a different chr (mapQ&gt;=5)
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">37420089</span> + 0 in total <span class="er">(</span><span class="ex">QC-passed</span> reads + QC-failed reads<span class="kw">)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">13703013</span> + 0 primary</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">22248085</span> + 0 secondary</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">1468991</span> + 0 supplementary</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> + 0 duplicates</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> + 0 primary duplicates</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">37133268</span> + 0 mapped <span class="er">(</span><span class="ex">99.23%</span> : N/A<span class="kw">)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">13416192</span> + 0 primary mapped <span class="er">(</span><span class="ex">97.91%</span> : N/A<span class="kw">)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> + 0 paired in sequencing</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> + 0 read1</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> + 0 read2</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> + 0 properly paired <span class="er">(</span><span class="ex">N/A</span> : N/A<span class="kw">)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> + 0 with itself and mate mapped</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> + 0 singletons <span class="er">(</span><span class="ex">N/A</span> : N/A<span class="kw">)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> + 0 with mate mapped to a different chr</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> + 0 with mate mapped to a different chr <span class="er">(</span><span class="ex">mapQ</span><span class="op">&gt;</span>=5<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Total alignments</strong>: The first line reports all alignments in the BAM file (primary + secondary + supplementary). Note that this is the number of alignments, not unique reads. In our example bam, we have <code>37420089</code> total number of alignments. Out of which, <code>13703013</code> are primary, <code>22248085</code> are secondary, and <code>1468991</code> are supplementary.</p>
 <p>Let’s break these down.</p>
 <p><strong>Primary alignments</strong>: By default all reads in your input FASTQ are considered a “primary” alignment regardless of whether or not they map to the reference genome/transcriptome. So this number should equal the total number of reads in your input FASTQ which can be checked in the terminal with</p>
-<pre class="{bash}"><code>wc -l $path_to_fastq_dir/input.fastq</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> <span class="va">$path_to_fastq_dir</span>/input.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Secondary alignments</strong>: These occur when a read maps to more than one location in the genome. A large number of secondary alignments can indicate ambiguity in read placement.</p>
 <p><strong>Supplementary alignments</strong>: These happen when different segments of a read align to separate regions of the genome. While sometimes biologically meaningful, they are often the result of sequencing artifacts.</p>
 <p><strong>Primary mapped reads</strong>: This is the key metric for assessing BAM file quality. A high proportion of primary mapped reads relative to total input reads indicates that most reads represent genuine genomic or transcriptomic sequences rather than noise.</p>
 <p>For example, in our dataset:</p>
 <p>Total input reads: <code>13,703,013</code></p>
-<p>Primary mapped: <code>13,416,192</code><br>
-<br>
-So we have 97.91% reads mapped to some part of the genome atleast once.</p>
+<p>Primary mapped: <code>13,416,192</code></p>
+<p>So we have 97.91% reads mapped to some part of the genome at least once.</p>
 </section>
 <section id="how-do-we-actually-extract-the-primary-mapped-reads-from-our-original-bam-file" class="level2">
 <h2 class="anchored" data-anchor-id="how-do-we-actually-extract-the-primary-mapped-reads-from-our-original-bam-file">How do we actually extract the primary mapped reads from our original bam file?</h2>
 <p>We can use the samtools view command to do the same as shown below.</p>
-<pre class="{bash}"><code>samtools view -h -b -F 0x904 $bam &gt; $output_dir/$bam_primary_mapped.bam</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-h</span> <span class="at">-b</span> <span class="at">-F</span> 0x904 <span class="va">$bam</span> <span class="op">&gt;</span> <span class="va">$output_dir</span>/<span class="va">$bam_primary_mapped</span>.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The important part here is the -F flag, which tells samtools to exclude secondary, supplementary, and unmapped reads. For a deeper explanation of this flag, the BROAD Institute <a href="https://broadinstitute.github.io/picard/explain-flags.html">provides a helpful guide</a>.</p>
 </section>
 <section id="uniquely-mapping-primary-alignments" class="level2">
 <h2 class="anchored" data-anchor-id="uniquely-mapping-primary-alignments">Uniquely mapping primary alignments</h2>
 <p>If you want to be even more stringent and retain only reads that map uniquely—meaning the read aligns to a single location in the genome—you can filter by a high mapping quality (MAPQ) value. This value is recorded in the BAM file for each alignment. An example command would be:</p>
-<pre class="{bash}"><code>samtools view -h -b -q 60 -F 0x904 $bam &gt; $output_dir/$bam_primary_mapped.bam</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-h</span> <span class="at">-b</span> <span class="at">-q</span> 60 <span class="at">-F</span> 0x904 <span class="va">$bam</span> <span class="op">&gt;</span> <span class="va">$output_dir</span>/<span class="va">$bam_primary_mapped</span>.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Setting MAPQ threshold to 60 ensures that only uniquely mapping reads are retained, as confirmed <a href="https://github.com/lh3/minimap2/issues/447">in this discussion</a> about minimap2 mapping quality.</p>
 <p>That’s it! We now know how to retain only high-quality alignments for Nanopore RNA sequencing.</p>
 

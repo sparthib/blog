@@ -2,16 +2,16 @@
 title: "Extracting Uniquely Mapped Primary Reads from BAM Files"
 date: 2025-10-06
 categories: [nanopore, bioinformatics]
+code-copy: true
 ---
 
 ## **Understanding Flagstat Output for Nanopore Reads**
 
-`Minimap2` is the most popular aligned for long reads such as nanopore. Once this step is done, \
-interpreting alignment quality from the `samtools flagstat` output is slightly different from short-read data:
+`Minimap2` is the most popular aligner for long reads such as nanopore. Once this step is done, interpreting alignment quality from the `samtools flagstat` output is slightly different from short-read data:
 
 Here's an example flagstat file:
 
-```{bash}
+```bash
 37420089 + 0 in total (QC-passed reads + QC-failed reads)
 13703013 + 0 primary
 22248085 + 0 secondary
@@ -28,7 +28,6 @@ Here's an example flagstat file:
 0 + 0 singletons (N/A : N/A)
 0 + 0 with mate mapped to a different chr
 0 + 0 with mate mapped to a different chr (mapQ>=5)
-
 ```
 
 **Total alignments**: The first line reports all alignments in the BAM file (primary + secondary + supplementary). Note that this is the number of alignments, not unique reads. In our example bam, we have `37420089` total number of alignments. Out of which, `13703013` are primary, `22248085` are secondary, and `1468991` are supplementary.
@@ -37,7 +36,7 @@ Let's break these down.
 
 **Primary alignments**: By default all reads in your input FASTQ are considered a "primary" alignment regardless of whether or not they map to the reference genome/transcriptome. So this number should equal the total number of reads in your input FASTQ which can be checked in the terminal with
 
-```{bash}
+```bash
 wc -l $path_to_fastq_dir/input.fastq
 ```
 
@@ -51,14 +50,15 @@ For example, in our dataset:
 
 Total input reads: `13,703,013`
 
-Primary mapped: `13,416,192`\
-\
-So we have 97.91% reads mapped to some part of the genome atleast once.
+Primary mapped: `13,416,192`
+
+So we have 97.91% reads mapped to some part of the genome at least once.
 
 ## How do we actually extract the primary mapped reads from our original bam file?
 
 We can use the samtools view command to do the same as shown below. 
-```{bash}
+
+```bash
 samtools view -h -b -F 0x904 $bam > $output_dir/$bam_primary_mapped.bam
 ```
 
@@ -68,7 +68,7 @@ The important part here is the -F flag, which tells samtools to exclude secondar
 
 If you want to be even more stringent and retain only reads that map uniquely—meaning the read aligns to a single location in the genome—you can filter by a high mapping quality (MAPQ) value. This value is recorded in the BAM file for each alignment. An example command would be:
 
-```{bash}
+```bash
 samtools view -h -b -q 60 -F 0x904 $bam > $output_dir/$bam_primary_mapped.bam
 ```
 
