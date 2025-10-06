@@ -215,8 +215,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="understanding-flagstat-output-for-nanopore-reads" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-flagstat-output-for-nanopore-reads"><strong>Understanding Flagstat Output for Nanopore Reads</strong></h2>
-<p><code>Minimap2</code> is the most popular aligner for long reads such as nanopore. Once this step is done, interpreting alignment quality from the <code>samtools flagstat</code> output is slightly different from short-read data:</p>
-<p>Here’s an example flagstat file:</p>
+<p><code>Minimap2</code> is the most popular aligner for long reads such as nanopore(ONT). Once this step is done, interpreting alignment quality from the <code>samtools flagstat</code> output is slightly different from short-read data:</p>
+<p>Here’s an example flagstat file of an ONT bam file:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">37420089</span> + 0 in total <span class="er">(</span><span class="ex">QC-passed</span> reads + QC-failed reads<span class="kw">)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">13703013</span> + 0 primary</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">22248085</span> + 0 secondary</span>
