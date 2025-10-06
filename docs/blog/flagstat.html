@@ -130,6 +130,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul class="collapse">
   <li><a href="#understanding-flagstat-output-for-nanopore-reads" id="toc-understanding-flagstat-output-for-nanopore-reads" class="nav-link active" data-scroll-target="#understanding-flagstat-output-for-nanopore-reads"><strong>Understanding Flagstat Output for Nanopore Reads</strong></a></li>
+  <li><a href="#how-do-we-actually-extract-the-primary-mapped-reads-from-our-original-bam-file" id="toc-how-do-we-actually-extract-the-primary-mapped-reads-from-our-original-bam-file" class="nav-link" data-scroll-target="#how-do-we-actually-extract-the-primary-mapped-reads-from-our-original-bam-file">How do we actually extract the primary mapped reads from our original bam file?</a></li>
+  <li><a href="#uniquely-mapping-primary-alignments" id="toc-uniquely-mapping-primary-alignments" class="nav-link" data-scroll-target="#uniquely-mapping-primary-alignments">Uniquely mapping primary alignments</a></li>
   </ul>
 </nav>
     </div>
@@ -205,11 +207,15 @@ interpreting alignment quality from the <code>samtools flagstat</code> output is
 <p>Primary mapped: <code>13,416,192</code><br>
 <br>
 So we have 97.91% reads mapped to some part of the genome atleast once.</p>
-<p><strong>How do we actually extract the primary mapped reads from our original bam file?<br>
-<br>
-</strong>We can use the samtools view command to do the same.</p>
+</section>
+<section id="how-do-we-actually-extract-the-primary-mapped-reads-from-our-original-bam-file" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-we-actually-extract-the-primary-mapped-reads-from-our-original-bam-file">How do we actually extract the primary mapped reads from our original bam file?</h2>
+<p>We can use the samtools view command to do the same.</p>
 <pre class="{bash}"><code>samtools view -h -b -F 0x904 $bam &gt; $output_dir/$bam_primary_mapped.bam</code></pre>
 <p>The important part here is the -F flag, which tells samtools to exclude secondary, supplementary, and unmapped reads. For a deeper explanation of this flag, the BROAD Institute <a href="https://broadinstitute.github.io/picard/explain-flags.html">provides a helpful guide</a>.</p>
+</section>
+<section id="uniquely-mapping-primary-alignments" class="level2">
+<h2 class="anchored" data-anchor-id="uniquely-mapping-primary-alignments">Uniquely mapping primary alignments</h2>
 <p>If you want to be even more stringent and retain only reads that map uniquely—meaning the read aligns to a single location in the genome—you can filter by a high mapping quality (MAPQ) value. This value is recorded in the BAM file for each alignment. An example command would be:</p>
 <pre class="{bash}"><code>samtools view -h -b -q 60 -F 0x904 $bam &gt; $output_dir/$bam_primary_mapped.bam</code></pre>
 <p>Using MAPQ=60 ensures that only uniquely mapping reads are retained, as confirmed <a href="https://github.com/lh3/minimap2/issues/447">in this discussion</a> about minimap2 mapping quality.</p>

@@ -55,15 +55,16 @@ Primary mapped: `13,416,192`\
 \
 So we have 97.91% reads mapped to some part of the genome atleast once.
 
-**How do we actually extract the primary mapped reads from our original bam file?\
-\
-**We can use the samtools view command to do the same.
+## How do we actually extract the primary mapped reads from our original bam file?
 
+We can use the samtools view command to do the same as shown below. 
 ```{bash}
 samtools view -h -b -F 0x904 $bam > $output_dir/$bam_primary_mapped.bam
 ```
 
 The important part here is the -F flag, which tells samtools to exclude secondary, supplementary, and unmapped reads. For a deeper explanation of this flag, the BROAD Institute [provides a helpful guide](https://broadinstitute.github.io/picard/explain-flags.html).
+
+## Uniquely mapping primary alignments 
 
 If you want to be even more stringent and retain only reads that map uniquely—meaning the read aligns to a single location in the genome—you can filter by a high mapping quality (MAPQ) value. This value is recorded in the BAM file for each alignment. An example command would be:
 
