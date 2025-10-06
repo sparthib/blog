@@ -1,14 +1,17 @@
 ---
 title: "Extracting Uniquely Mapped Primary Reads from BAM Files"
-format: html
 date: 2025-10-06
 categories: [nanopore, bioinformatics]
 ---
 
-```{r}
-#| eval: false
-# Example: flagstat output as text
-flagstat_text <- "
+## **Understanding Flagstat Output for Nanopore Reads**
+
+`Minimap2` is the most popular aligned for long reads such as nanopore. Once this step is done, \
+interpreting alignment quality from the `samtools flagstat` output is slightly different from short-read data:
+
+Here's an example flagstat file:
+
+```{bash}
 37420089 + 0 in total (QC-passed reads + QC-failed reads)
 13703013 + 0 primary
 22248085 + 0 secondary
@@ -25,40 +28,38 @@ flagstat_text <- "
 0 + 0 singletons (N/A : N/A)
 0 + 0 with mate mapped to a different chr
 0 + 0 with mate mapped to a different chr (mapQ>=5)
-"
+
 ```
 
-## Understanding Flagstat Output for Nanopore Reads
+**Total alignments**: The first line reports all alignments in the BAM file (primary + secondary + supplementary). Note that this is the number of alignments, not unique reads. In our example bam, we have `37420089` total number of alignments. Out of which, `13703013` are primary, `22248085` are secondary, and `1468991` are supplementary.
 
-When working with Nanopore reads at the alignment stage, interpreting samtools flagstat output is slightly different from short-read data:
+Let's break these down.
 
-Here's the breakdown of how I use flagstat:
-
-Total alignments: The first line reports all alignments in the BAM file (primary + secondary + supplementary). Note that this is alignments, not unique reads.
-
-Primary alignments: By default all reads in your input FASTQ are considered a "primary" alignment regardless of whether or not they map to the reference genome/transcriptome. So this number should equal the total number of reads in your input FASTQ which can be checked with
+**Primary alignments**: By default all reads in your input FASTQ are considered a "primary" alignment regardless of whether or not they map to the reference genome/transcriptome. So this number should equal the total number of reads in your input FASTQ which can be checked in the terminal with
 
 ```{bash}
-#| eval: false
-wc -l input.fastq
+wc -l $path_to_fastq_dir/input.fastq
 ```
 
-Secondary alignments: These occur when a read maps to more than one location in the genome. A large number of secondary alignments can indicate ambiguity in read placement.
+**Secondary alignments**: These occur when a read maps to more than one location in the genome. A large number of secondary alignments can indicate ambiguity in read placement.
 
-Supplementary alignments: These happen when different segments of a read align to separate regions of the genome. While sometimes biologically meaningful, they are often the result of sequencing artifacts.
+**Supplementary alignments**: These happen when different segments of a read align to separate regions of the genome. While sometimes biologically meaningful, they are often the result of sequencing artifacts.
 
-Primary mapped reads: This is the key metric for assessing BAM file quality. A high proportion of primary mapped reads relative to total input reads indicates that most reads represent genuine genomic or transcriptomic sequences rather than noise.
+**Primary mapped reads**: This is the key metric for assessing BAM file quality. A high proportion of primary mapped reads relative to total input reads indicates that most reads represent genuine genomic or transcriptomic sequences rather than noise.
 
 For example, in our dataset:
 
-Total input reads: 13,703,013
+Total input reads: `13,703,013`
 
-Primary mapped: 13,416,192 (97.91%)
+Primary mapped: `13,416,192`\
+\
+So we have 97.91% reads mapped to some part of the genome atleast once.
 
-So, how do we actually extract the primary mapped reads from our original bam file?
+**How do we actually extract the primary mapped reads from our original bam file?\
+\
+**We can use the samtools view command to do the same.
 
 ```{bash}
-#| eval: false
 samtools view -h -b -F 0x904 $bam > $output_dir/$bam_primary_mapped.bam
 ```
 
@@ -67,10 +68,9 @@ The important part here is the -F flag, which tells samtools to exclude secondar
 If you want to be even more stringent and retain only reads that map uniquely—meaning the read aligns to a single location in the genome—you can filter by a high mapping quality (MAPQ) value. This value is recorded in the BAM file for each alignment. An example command would be:
 
 ```{bash}
-#| eval: false
 samtools view -h -b -q 60 -F 0x904 $bam > $output_dir/$bam_primary_mapped.bam
 ```
 
-Using MAPQ=60 ensures that only uniquely mapping reads are retained, as confirmed [in this discussion](https://github.com/lh3/minimap2/issues/447) about minimap2.
+Using MAPQ=60 ensures that only uniquely mapping reads are retained, as confirmed [in this discussion](https://github.com/lh3/minimap2/issues/447) about minimap2 mapping quality.
 
 That's it! We now know how to retain only high-quality alignments for Nanopore RNA sequencing.
