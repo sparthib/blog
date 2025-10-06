@@ -1,6 +1,7 @@
 ---
-title: "Extracting Uniquely Mapped Primary Reads from BAM Files"
+title: "Extracting High Quality Alignments from ONT BAM Files"
 date: 2025-10-06
+description: Interpreting the `samtools flagstat` command for ONT sequencing.
 categories: [nanopore, bioinformatics]
 code-copy: true
 ---
