@@ -210,7 +210,7 @@ So we have 97.91% reads mapped to some part of the genome atleast once.</p>
 </section>
 <section id="how-do-we-actually-extract-the-primary-mapped-reads-from-our-original-bam-file" class="level2">
 <h2 class="anchored" data-anchor-id="how-do-we-actually-extract-the-primary-mapped-reads-from-our-original-bam-file">How do we actually extract the primary mapped reads from our original bam file?</h2>
-<p>We can use the samtools view command to do the same.</p>
+<p>We can use the samtools view command to do the same as shown below.</p>
 <pre class="{bash}"><code>samtools view -h -b -F 0x904 $bam &gt; $output_dir/$bam_primary_mapped.bam</code></pre>
 <p>The important part here is the -F flag, which tells samtools to exclude secondary, supplementary, and unmapped reads. For a deeper explanation of this flag, the BROAD Institute <a href="https://broadinstitute.github.io/picard/explain-flags.html">provides a helpful guide</a>.</p>
 </section>

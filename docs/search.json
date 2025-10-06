@@ -256,6 +256,6 @@
     "href": "blog/flagstat.html#how-do-we-actually-extract-the-primary-mapped-reads-from-our-original-bam-file",
     "title": "Extracting Uniquely Mapped Primary Reads from BAM Files",
     "section": "How do we actually extract the primary mapped reads from our original bam file?",
-    "text": "How do we actually extract the primary mapped reads from our original bam file?\nWe can use the samtools view command to do the same.\nsamtools view -h -b -F 0x904 $bam &gt; $output_dir/$bam_primary_mapped.bam\nThe important part here is the -F flag, which tells samtools to exclude secondary, supplementary, and unmapped reads. For a deeper explanation of this flag, the BROAD Institute provides a helpful guide."
+    "text": "How do we actually extract the primary mapped reads from our original bam file?\nWe can use the samtools view command to do the same as shown below.\nsamtools view -h -b -F 0x904 $bam &gt; $output_dir/$bam_primary_mapped.bam\nThe important part here is the -F flag, which tells samtools to exclude secondary, supplementary, and unmapped reads. For a deeper explanation of this flag, the BROAD Institute provides a helpful guide."
   }
 ]
