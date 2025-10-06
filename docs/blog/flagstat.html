@@ -218,7 +218,7 @@ So we have 97.91% reads mapped to some part of the genome atleast once.</p>
 <h2 class="anchored" data-anchor-id="uniquely-mapping-primary-alignments">Uniquely mapping primary alignments</h2>
 <p>If you want to be even more stringent and retain only reads that map uniquely—meaning the read aligns to a single location in the genome—you can filter by a high mapping quality (MAPQ) value. This value is recorded in the BAM file for each alignment. An example command would be:</p>
 <pre class="{bash}"><code>samtools view -h -b -q 60 -F 0x904 $bam &gt; $output_dir/$bam_primary_mapped.bam</code></pre>
-<p>Using MAPQ=60 ensures that only uniquely mapping reads are retained, as confirmed <a href="https://github.com/lh3/minimap2/issues/447">in this discussion</a> about minimap2 mapping quality.</p>
+<p>Setting MAPQ threshold to 60 ensures that only uniquely mapping reads are retained, as confirmed <a href="https://github.com/lh3/minimap2/issues/447">in this discussion</a> about minimap2 mapping quality.</p>
 <p>That’s it! We now know how to retain only high-quality alignments for Nanopore RNA sequencing.</p>
 
 

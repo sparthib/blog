@@ -249,7 +249,7 @@
     "href": "blog/flagstat.html#uniquely-mapping-primary-alignments",
     "title": "Extracting Uniquely Mapped Primary Reads from BAM Files",
     "section": "Uniquely mapping primary alignments",
-    "text": "Uniquely mapping primary alignments\nIf you want to be even more stringent and retain only reads that map uniquely—meaning the read aligns to a single location in the genome—you can filter by a high mapping quality (MAPQ) value. This value is recorded in the BAM file for each alignment. An example command would be:\nsamtools view -h -b -q 60 -F 0x904 $bam &gt; $output_dir/$bam_primary_mapped.bam\nUsing MAPQ=60 ensures that only uniquely mapping reads are retained, as confirmed in this discussion about minimap2 mapping quality.\nThat’s it! We now know how to retain only high-quality alignments for Nanopore RNA sequencing."
+    "text": "Uniquely mapping primary alignments\nIf you want to be even more stringent and retain only reads that map uniquely—meaning the read aligns to a single location in the genome—you can filter by a high mapping quality (MAPQ) value. This value is recorded in the BAM file for each alignment. An example command would be:\nsamtools view -h -b -q 60 -F 0x904 $bam &gt; $output_dir/$bam_primary_mapped.bam\nSetting MAPQ threshold to 60 ensures that only uniquely mapping reads are retained, as confirmed in this discussion about minimap2 mapping quality.\nThat’s it! We now know how to retain only high-quality alignments for Nanopore RNA sequencing."
   },
   {
     "objectID": "blog/flagstat.html#how-do-we-actually-extract-the-primary-mapped-reads-from-our-original-bam-file",

@@ -72,6 +72,6 @@ If you want to be even more stringent and retain only reads that map uniquely—
 samtools view -h -b -q 60 -F 0x904 $bam > $output_dir/$bam_primary_mapped.bam
 ```
 
-Using MAPQ=60 ensures that only uniquely mapping reads are retained, as confirmed [in this discussion](https://github.com/lh3/minimap2/issues/447) about minimap2 mapping quality.
+Setting MAPQ threshold to 60 ensures that only uniquely mapping reads are retained, as confirmed [in this discussion](https://github.com/lh3/minimap2/issues/447) about minimap2 mapping quality.
 
 That's it! We now know how to retain only high-quality alignments for Nanopore RNA sequencing.
